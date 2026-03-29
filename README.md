@@ -28,10 +28,6 @@ Disfruto optimizar mi flujo de trabajo, motivo por el cual desarrollo principalm
 - Neovim
 - Control de versiones (Git/GitHub)
 
-## Proyectos Destacados
-
-*Aquí puedes listar brevemente 2 o 3 proyectos. Idealmente, menciona alguno donde hayas implementado una API con Node.js, diseñado una base de datos en MySQL o experimentado con algún LLM.*
-
 ## Contacto y Enlaces
 
 - GitHub: [leanNunez](https://github.com/leanNunez)
