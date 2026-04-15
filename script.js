@@ -4,17 +4,29 @@ const body = document.body;
 themeToggle.addEventListener('click', () => {
     body.classList.toggle('light');
     body.classList.toggle('dark');
-    themeToggle.textContent = body.classList.contains('light') ? '🌙' : '☀️';
+    const isLight = body.classList.contains('light');
+    themeToggle.textContent = isLight ? '🌙' : '☀️';
+    themeToggle.setAttribute('aria-label', isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro');
 });
 
+function debounce(fn, delay) {
+    let timer;
+    return (...args) => {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), delay);
+    };
+}
 
-window.addEventListener('scroll', () => {
-    const scrollProgress = document.getElementById('scrollProgress');
+const scrollProgress = document.getElementById('scrollProgress');
+
+function updateScrollProgress() {
     const scrollTop = window.pageYOffset;
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const scrollPercent = (scrollTop / docHeight) * 100;
     scrollProgress.style.width = scrollPercent + '%';
-});
+}
+
+window.addEventListener('scroll', debounce(updateScrollProgress, 16));
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -37,12 +49,12 @@ const observerOptions = {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 document.querySelectorAll('.skill-card, .project-card, .contact-card').forEach(el => {
-    el.style.opacity = '0';
     observer.observe(el);
 });

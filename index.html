@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Leandro Nuñez - Desarrollador Web</title>
+    <meta name="description" content="Leandro Nuñez — Desarrollador Web Full Stack especializado en React, TypeScript y Node.js. Mirá mis proyectos y contactame.">
+    <title>Leandro Nuñez - Desarrollador Web Full Stack</title>
+    <link rel="preload" as="image" href="foto.png">
     <link rel="stylesheet" href="stylo.css">
 </head>
 <body class="dark">
     <div class="scroll-progress" id="scrollProgress"></div>
 
-    <nav>
-        <div class="logo">LN</div>
-        <ul class="nav-links">
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-        <button class="theme-toggle" id="themeToggle">🌙</button>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">LN</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <button type="button" class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+        </nav>
+    </header>
 
+    <main>
     <section class="hero" id="inicio">
         <div class="hero-content">
             <div class="profile-image-container">
@@ -56,19 +61,29 @@
                 <div class="skill-level">Intermedio</div>
             </div>
             <div class="skill-card">
+                <div class="skill-icon">⚛️</div>
+                <div class="skill-name">React</div>
+                <div class="skill-level">Intermedio</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🔷</div>
+                <div class="skill-name">TypeScript</div>
+                <div class="skill-level">Intermedio</div>
+            </div>
+            <div class="skill-card">
+                <div class="skill-icon">🟢</div>
+                <div class="skill-name">Node.js</div>
+                <div class="skill-level">Intermedio</div>
+            </div>
+            <div class="skill-card">
                 <div class="skill-icon">🗄️</div>
-                <div class="skill-name">MySQL</div>
+                <div class="skill-name">PostgreSQL</div>
                 <div class="skill-level">Intermedio</div>
             </div>
             <div class="skill-card">
                 <div class="skill-icon">📱</div>
                 <div class="skill-name">Responsive Design</div>
                 <div class="skill-level">Avanzado</div>
-            </div>
-            <div class="skill-card">
-                <div class="skill-icon">✨</div>
-                <div class="skill-name">Animaciones</div>
-                <div class="skill-level">Intermedio</div>
             </div>
             <div class="skill-card">
                 <div class="skill-icon">🔧</div>
@@ -81,6 +96,28 @@
     <section class="section" id="proyectos">
         <h2 class="section-title">Proyectos Destacados</h2>
         <div class="projects-grid">
+            <div class="project-card project-featured">
+                <div class="project-image">🛒</div>
+                <div class="project-content">
+                    <h3 class="project-title">PremiumTech — E-commerce Full Stack</h3>
+                    <p class="project-description">Plataforma e-commerce completa para productos tecnológicos. Incluye catálogo con filtros y búsqueda, carrito persistente, checkout, autenticación JWT, historial de pedidos y panel de administración con CRUD completo.</p>
+                    <div class="project-tags">
+                        <span class="tag">React 19</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Prisma</span>
+                        <span class="tag">Tailwind CSS</span>
+                        <span class="tag">Zustand</span>
+                        <span class="tag">JWT</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://ecommerce-tech-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link demo">Ver Demo</a>
+                        <a href="https://github.com/leanNunez/Ecommerce_Tech" target="_blank" rel="noopener noreferrer" class="project-link code">Código</a>
+                    </div>
+                </div>
+            </div>
+
             <div class="project-card">
                 <div class="project-image">🌐</div>
                 <div class="project-content">
@@ -129,8 +166,28 @@
                         <span class="tag">Animaciones</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link demo">Ver Demo</a>
-                        <a href="#" class="project-link code">Código</a>
+                        <a href="https://github.com/leanNunez/myportfolio" target="_blank" rel="noopener noreferrer" class="project-link code">Código</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card project-wip">
+                <div class="project-image">🤖</div>
+                <div class="project-content">
+                    <h3 class="project-title">Chatbot con IA & RAG</h3>
+                    <p class="project-description">Asistente conversacional inteligente con Retrieval-Augmented Generation (RAG). Capaz de responder preguntas basándose en documentos propios, usando embeddings vectoriales y modelos de lenguaje. Proyecto del curso de Desarrollo con IA de IBM.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">LangChain</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">OpenAI API</span>
+                        <span class="tag">FAISS</span>
+                        <span class="tag">FastAPI</span>
+                        <span class="tag">Hugging Face</span>
+                        <span class="tag">Jupyter</span>
+                    </div>
+                    <div class="project-links">
+                        <span class="project-link wip">En Desarrollo</span>
                     </div>
                 </div>
             </div>
@@ -146,25 +203,30 @@
                 <div class="contact-info">leandro_castillero@hotmail.es</div>
             </a>
 
-            <a href="https://github.com/leanNunez" target="_blank" class="contact-card">
+            <a href="https://github.com/leanNunez" target="_blank" rel="noopener noreferrer" class="contact-card">
                 <div class="contact-icon">💻</div>
                 <div class="contact-title">GitHub</div>
                 <div class="contact-info">@leanNunez</div>
             </a>
 
-            <a href="https://www.linkedin.com/in/leandro-nu%C3%B1ez-661461388/" target="_blank" class="contact-card">
+            <a href="https://www.linkedin.com/in/leandro-nu%C3%B1ez-661461388/" target="_blank" rel="noopener noreferrer" class="contact-card">
                 <div class="contact-icon">💼</div>
                 <div class="contact-title">LinkedIn</div>
                 <div class="contact-info">Leandro Nuñez</div>
             </a>
 
-            <a href="https://wa.me/5493814627108" target="_blank" class="contact-card">
+            <a href="https://wa.me/5493814627108" target="_blank" rel="noopener noreferrer" class="contact-card">
                 <div class="contact-icon">📱</div>
                 <div class="contact-title">WhatsApp</div>
                 <div class="contact-info">+54 381 462 7108</div>
             </a>
         </div>
     </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Leandro Nuñez — Desarrollador Web Full Stack</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>

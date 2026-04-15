@@ -13,11 +13,17 @@
     --accent-hover: #4f46e5;
     --card-light: rgba(255, 255, 255, 0.9);
     --card-dark: rgba(30, 41, 59, 0.7);
+    --radius-card: 20px;
+    --radius-pill: 25px;
+    --size-avatar: 180px;
+    --size-project-image: 250px;
+    --transition-theme: background-color 0.3s ease, color 0.3s ease;
+    --transition-card: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    transition: all 0.3s ease;
+    transition: var(--transition-theme);
     overflow-x: hidden;
 }
 
@@ -32,6 +38,10 @@ body.dark {
 }
 
 /* Navbar */
+header {
+    display: contents;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -42,7 +52,7 @@ nav {
     align-items: center;
     backdrop-filter: blur(10px);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 body.light nav {
@@ -135,8 +145,8 @@ body.dark nav {
 }
 
 .profile-image {
-    width: 180px;
-    height: 180px;
+    width: var(--size-avatar);
+    height: var(--size-avatar);
     border-radius: 50%;
     border: 5px solid rgb(102, 126, 234);
     box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
@@ -256,11 +266,21 @@ body.dark nav {
 
 .skill-card {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: var(--radius-card);
     text-align: center;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    transition: var(--transition-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 0;
+}
+
+.contact-card,
+.project-card {
+    opacity: 0;
+}
+
+.is-visible {
+    animation: fadeInUp 0.6s ease forwards;
 }
 
 body.light .skill-card {
@@ -304,10 +324,10 @@ body.dark .skill-card {
 }
 
 .project-card {
-    border-radius: 20px;
+    border-radius: var(--radius-card);
     overflow: hidden;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    transition: var(--transition-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
 }
@@ -327,9 +347,63 @@ body.dark .project-card {
     box-shadow: 0 20px 60px rgba(102, 126, 234, 0.4);
 }
 
+.project-featured {
+    border: 2px solid rgba(102, 126, 234, 0.6);
+    position: relative;
+}
+
+.project-featured::after {
+    content: '⭐ Destacado';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.project-wip {
+    border: 2px solid rgba(250, 176, 5, 0.4);
+    position: relative;
+}
+
+.project-wip::after {
+    content: '🚧 En Desarrollo';
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(45deg, #f59e0b, #d97706);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.project-wip .project-image {
+    background: linear-gradient(135deg, #d97706 0%, #92400e 100%);
+    opacity: 0.85;
+}
+
+.project-link.wip {
+    background: linear-gradient(45deg, #f59e0b, #d97706);
+    color: white;
+    cursor: default;
+    opacity: 0.9;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
 .project-image {
     width: 100%;
-    height: 250px;
+    height: var(--size-project-image);
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     align-items: center;
@@ -425,10 +499,10 @@ body.dark .project-card {
 
 .contact-card {
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: var(--radius-card);
     text-align: center;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    transition: var(--transition-card);
     border: 1px solid rgba(255, 255, 255, 0.1);
     text-decoration: none;
     color: inherit;
@@ -589,6 +663,33 @@ body.dark .contact-card {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem 5%;
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+/* Accessibility — reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .is-visible {
+        animation: none;
+        opacity: 1;
+    }
+
+    .skill-card,
+    .project-card,
+    .contact-card {
+        opacity: 1;
     }
 }
 
