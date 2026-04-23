@@ -163,6 +163,15 @@ nav {
   transform: translateY(-2px);
 }
 
+.btn-cv {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+.btn-cv:hover {
+  background: rgba(34,211,238,.08);
+  border-color: var(--cyan);
+}
+
 /* ── Avatar ── */
 .avatar-wrap { position: relative; flex-shrink: 0; }
 
