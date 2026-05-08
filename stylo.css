@@ -477,7 +477,7 @@ nav {
   font-size: .68rem; color: var(--muted);
   text-transform: uppercase; letter-spacing: .1em;
 }
-.c-val { font-size: .88rem; font-weight: 500; color: var(--text); }
+.c-val { font-size: .88rem; font-weight: 500; color: var(--text); overflow-wrap: anywhere; }
 
 /* ════ FOOTER ════ */
 footer {
@@ -545,6 +545,7 @@ footer span { color: var(--cyan); }
   .avatar-ring { width: 200px; height: 200px; }
   .skills-grid { grid-template-columns: repeat(3, 1fr); }
   .car-nav { display: none; }
+  .contact-card { flex: 0 0 min(240px, calc(85vw - 2rem)); }
 }
 
 @media (max-width: 400px) {
