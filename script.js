@@ -13,6 +13,29 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
+// ── Carousels
+document.querySelectorAll('.carousel-wrap').forEach(wrap => {
+  const track = wrap.querySelector('.car-track');
+  const prev  = wrap.querySelector('.car-btn--prev');
+  const next  = wrap.querySelector('.car-btn--next');
+  if (!track || !prev || !next) return;
+
+  const scrollBy = dir => {
+    const cardW = track.firstElementChild?.getBoundingClientRect().width || 340;
+    track.scrollBy({ left: dir * (cardW + 24), behavior: 'smooth' });
+  };
+
+  prev.addEventListener('click', () => scrollBy(-1));
+  next.addEventListener('click', () => scrollBy(1));
+
+  const sync = () => {
+    prev.disabled = track.scrollLeft <= 0;
+    next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
+  };
+  track.addEventListener('scroll', sync, { passive: true });
+  sync();
+});
+
 // ── Reveal animado con stagger al hacer scroll
 const cards = document.querySelectorAll('.skill-card, .proj-card, .contact-card');
 
@@ -21,7 +44,7 @@ const io = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const siblings = [...entry.target.parentElement.children];
       const idx = siblings.indexOf(entry.target);
-      entry.target.style.animationDelay = (idx * 0.07) + 's';
+      entry.target.style.animationDelay = (idx * 0.09) + 's';
       entry.target.classList.add('in');
       io.unobserve(entry.target);
     }

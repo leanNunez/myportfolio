@@ -10,7 +10,7 @@
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="stylo.css">
@@ -19,6 +19,90 @@
 
   <!-- Barra de progreso de scroll -->
   <div id="sp"></div>
+
+  <!-- Space Invaders flotantes de fondo -->
+  <div class="bg-doodles" aria-hidden="true">
+
+    <!-- Invader A — antenas rectas, cyan -->
+    <svg class="bg-doodle" style="--x1: 12vw; --y1: 20vh; --x2: 72vw; --y2: 18vh; --x3: 44vw; --y3: 76vh; --size: 160px; --t: 28s; --delay: -6s; --c: rgba(34, 211, 238, 0.55);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="27" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="83" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2"/>
+      <rect x="2"   y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
+      <rect x="105" y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
+      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+    </svg>
+
+    <!-- Invader B — antenas en gancho, violet -->
+    <svg class="bg-doodle" style="--x1: 82vw; --y1: 20vh; --x2: 24vw; --y2: 26vh; --x3: 68vw; --y3: 82vh; --size: 145px; --t: 24s; --delay: -3s; --c: rgba(167, 139, 250, 0.55);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="20" x2="18" y2="4"  stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="90" y1="20" x2="102" y2="4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="17"  cy="4" r="4" stroke="currentColor" stroke-width="2"/>
+      <circle cx="103" cy="4" r="4" stroke="currentColor" stroke-width="2"/>
+      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2"/>
+      <path d="M2 40 L15 48 L2 58"   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M118 40 L105 48 L118 58" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+    </svg>
+
+    <!-- Invader A — antenas rectas, green (más grande) -->
+    <svg class="bg-doodle" style="--x1: 18vw; --y1: 78vh; --x2: 62vw; --y2: 62vh; --x3: 30vw; --y3: 16vh; --size: 180px; --t: 32s; --delay: -12s; --c: rgba(74, 222, 128, 0.5);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="27" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="83" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="2"   y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="105" y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2.2"/>
+      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+    </svg>
+
+    <!-- Invader B — antenas en gancho, sky blue (más chico) -->
+    <svg class="bg-doodle" style="--x1: 54vw; --y1: 42vh; --x2: 12vw; --y2: 64vh; --x3: 88vw; --y3: 40vh; --size: 135px; --t: 20s; --delay: -9s; --c: rgba(56, 189, 248, 0.5);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="30" y1="20" x2="18" y2="4"  stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="90" y1="20" x2="102" y2="4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+      <circle cx="17"  cy="4" r="4" stroke="currentColor" stroke-width="2"/>
+      <circle cx="103" cy="4" r="4" stroke="currentColor" stroke-width="2"/>
+      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2"/>
+      <path d="M2 40 L15 48 L2 58"   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M118 40 L105 48 L118 58" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+    </svg>
+
+    <!-- Invader A — antenas rectas, amber -->
+    <svg class="bg-doodle" style="--x1: 84vw; --y1: 70vh; --x2: 40vw; --y2: 86vh; --x3: 76vw; --y3: 24vh; --size: 150px; --t: 26s; --delay: -7s; --c: rgba(251, 191, 36, 0.5);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect x="27" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="83" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2"/>
+      <rect x="2"   y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
+      <rect x="105" y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
+      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
+    </svg>
+
+  </div>
 
   <!-- ════════════ NAV ════════════ -->
   <nav>
@@ -212,7 +296,8 @@
     <p class="s-label">// proyectos</p>
     <h2 class="s-title">Trabajo <span class="gr">destacado</span></h2>
 
-    <div class="proj-grid">
+    <div class="carousel-wrap">
+      <div class="car-track">
 
       <!-- E-commerce Full Stack — proyecto destacado con links reales -->
       <div class="proj-card">
@@ -321,6 +406,11 @@
         </div>
       </div>
 
+      </div>
+      <div class="car-nav">
+        <button class="car-btn car-btn--prev" aria-label="Proyecto anterior">&#8592;</button>
+        <button class="car-btn car-btn--next" aria-label="Proyecto siguiente">&#8594;</button>
+      </div>
     </div>
   </section>
 
@@ -329,7 +419,8 @@
     <p class="s-label">// contacto</p>
     <h2 class="s-title">Listo para sumar a <span class="gr">tu equipo</span></h2>
 
-    <div class="contact-grid">
+    <div class="carousel-wrap carousel-wrap--sm">
+      <div class="car-track">
 
       <a href="mailto:lean.p.dev@gmail.com" class="contact-card">
         <div class="ci-wrap">
@@ -372,6 +463,11 @@
         <div class="c-val">+54 381 462-7108</div>
       </a>
 
+      </div>
+      <div class="car-nav">
+        <button class="car-btn car-btn--prev" aria-label="Contacto anterior">&#8592;</button>
+        <button class="car-btn car-btn--next" aria-label="Contacto siguiente">&#8594;</button>
+      </div>
     </div>
   </section>
 
