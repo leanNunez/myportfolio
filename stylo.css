@@ -162,6 +162,7 @@ nav {
   margin-bottom: 1.6rem; letter-spacing: .04em;
 }
 .hero-role::before { content: '> '; color: var(--muted); }
+.hero-role .ai { color: var(--violet); }
 
 .hero-desc {
   font-size: 1.05rem; color: var(--dim);
