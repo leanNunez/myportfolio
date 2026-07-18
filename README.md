@@ -1,35 +1,47 @@
-# Portfolio Personal - Lean
+# Portfolio — Leandro Nuñez
 
-Bienvenido al código fuente de mi portfolio web. Soy un estudiante de programación cursando mi último año, con un fuerte enfoque en el desarrollo Backend, la arquitectura de sistemas y la integración de nuevas tecnologías.
+Sitio personal de portfolio, construido en **HTML5, CSS3 y JavaScript vanilla** (sin framework) y desplegado en **GitHub Pages**. Muestra mis proyectos, mi stack y cómo contactarme.
 
-## Sobre Mí
+🔗 **En vivo → [leannunez.github.io/myportfolio](https://leannunez.github.io/myportfolio)**
 
-Mi interés principal radica en construir aplicaciones robustas, escalables y eficientes desde el lado del servidor. Recientemente he expandido mis conocimientos hacia el campo de la Inteligencia Artificial, explorando cómo integrar modelos de lenguaje en aplicaciones reales. 
+## Sobre mí
 
-Disfruto optimizar mi flujo de trabajo, motivo por el cual desarrollo principalmente desde la terminal utilizando entornos basados en Linux.
+Desarrollador **Full Stack** con foco en **IA generativa** (RAG, NL2SQL, sistemas agénticos). Curso el **último año** de la Tecnicatura Universitaria en Programación (UTN FRT) y estoy certificado por IBM en *RAG and Agentic AI*.
 
-## Stack Tecnológico y Habilidades
+Construyo aplicaciones reales de punta a punta: APIs con FastAPI/Express sobre PostgreSQL, frontends en React 19, e integración de LLMs en producción. Trabajo principalmente desde la terminal en Linux.
 
-### Backend y Bases de Datos
-- Node.js
-- MySQL
+## Stack
 
-### Inteligencia Artificial
-- Integración de IA y LLMs (Large Language Models)
-- Implementación de Agentes
+| Área | Tecnologías |
+|------|-------------|
+| Frontend | React 19 · TypeScript · TanStack Router/Query · Zustand · Tailwind CSS · HTML/CSS/JS vanilla |
+| Backend | FastAPI · Node.js/Express · SQLAlchemy · REST · JWT · SSE |
+| Datos | PostgreSQL (pgvector, Alembic) · Prisma |
+| IA | RAG · embeddings · NL2SQL · function calling · LangGraph |
+| Tooling | Git/GitHub · Docker · Vercel · Render · Supabase · Neovim · Linux |
 
-### Frontend
-- JavaScript
-- HTML
-- CSS
+## Este repositorio
 
-### Entorno de Desarrollo y Herramientas
-- Linux (WSL)
-- Neovim
-- Control de versiones (Git/GitHub)
+Portfolio estático, sin build step ni dependencias:
 
-## Contacto y Enlaces
+- `index.html` — estructura y contenido.
+- `stylo.css` — estilos (design tokens, grid, carruseles, responsive).
+- `script.js` — interacciones (navegación, carruseles, animaciones on-scroll).
 
-- GitHub: [leanNunez](https://github.com/leanNunez)
-- Portfolio Web: [https://github.com/leanNunez/myportfolio](https://leannunez.github.io/myportfolio)
-- LinkedIn: [https://www.linkedin.com/in/lean-nunez/]
+### Correrlo local
+
+Al ser estático, alcanza con servir la carpeta:
+
+```bash
+python3 -m http.server 8080
+# o
+npx serve .
+```
+
+El deploy a GitHub Pages es automático al mergear a `main`.
+
+## Contacto
+
+- **Portfolio** — [leannunez.github.io/myportfolio](https://leannunez.github.io/myportfolio)
+- **GitHub** — [github.com/leanNunez](https://github.com/leanNunez)
+- **LinkedIn** — [linkedin.com/in/lean-nunez](https://www.linkedin.com/in/lean-nunez/)
