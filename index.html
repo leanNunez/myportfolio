@@ -120,6 +120,7 @@
       <li><a href="#inicio">inicio</a></li>
       <li><a href="#habilidades">habilidades</a></li>
       <li><a href="#proyectos">proyectos</a></li>
+      <li><a href="#formacion">formación</a></li>
       <li><a href="#contacto">contacto</a></li>
     </ul>
     <div class="nav-badge">
@@ -234,7 +235,7 @@
             alt="Git"
           >
         </div>
-        <div class="sk-name">Git & GitHub</div>
+        <div class="sk-name">Git &amp; GitHub</div>
         <div class="sk-lvl">intermedio</div>
       </div>
 
@@ -325,10 +326,40 @@
     <div class="carousel-wrap">
       <div class="car-track">
 
-      <!-- E-commerce Full Stack — proyecto destacado con links reales -->
+      <!-- Repuestero — ERP multi-tenant AI-native, proyecto insignia -->
       <div class="proj-card">
         <div class="proj-head">
           <span class="proj-num">proyecto_01</span>
+          <span class="proj-badge">● live</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Repuestero — ERP Multi-Tenant AI-Native</h3>
+          <p class="proj-desc">
+            Reescritura de un ERP legacy (Delphi/Paradox) de una casa de repuestos hacia una arquitectura multi-tenant AI-native. Aislamiento entre organizaciones por Row-Level Security de PostgreSQL (el <code>org_id</code> se resuelve desde la base, no del JWT); asistente conversacional NL2SQL orquestado con LangGraph con defensa en profundidad de 5 capas; e ingesta de remitos por foto con revisión humana obligatoria (Human-in-the-Loop). CI con branch protection y deploy en vivo.
+          </p>
+          <div class="proj-tags">
+            <span class="tag">FastAPI</span>
+            <span class="tag">SQLAlchemy 2.0</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">RLS multi-tenant</span>
+            <span class="tag">pgvector</span>
+            <span class="tag">LangGraph</span>
+            <span class="tag">Groq/OpenAI</span>
+            <span class="tag">sqlglot</span>
+            <span class="tag">React 19</span>
+            <span class="tag">Supabase</span>
+          </div>
+          <div class="proj-links">
+            <a href="https://repuestero.vercel.app" target="_blank" rel="noopener noreferrer" class="pl pl-demo">Demo →</a>
+            <a href="https://github.com/leanNunez/repuestero" target="_blank" rel="noopener noreferrer" class="pl pl-code">Código</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- E-commerce Full Stack — proyecto destacado con links reales -->
+      <div class="proj-card">
+        <div class="proj-head">
+          <span class="proj-num">proyecto_02</span>
           <span class="proj-badge">● live</span>
         </div>
         <div class="proj-body">
@@ -359,11 +390,11 @@
       <!-- Chatbot RAG — live -->
       <div class="proj-card">
         <div class="proj-head">
-          <span class="proj-num">proyecto_02</span>
+          <span class="proj-num">proyecto_03</span>
           <span class="proj-badge">● live</span>
         </div>
         <div class="proj-body">
-          <h3 class="proj-title">Chatbot con IA & RAG</h3>
+          <h3 class="proj-title">Chatbot con IA &amp; RAG</h3>
           <p class="proj-desc">
             Asistente conversacional que responde preguntas sobre mi experiencia y proyectos usando Retrieval-Augmented Generation. Embeddings vectoriales con ChromaDB, modelo Gemini con fallback a Groq, backend en FastAPI y frontend en React.
           </p>
@@ -387,7 +418,7 @@
       <!-- Portfolio -->
       <div class="proj-card">
         <div class="proj-head">
-          <span class="proj-num">proyecto_03</span>
+          <span class="proj-num">proyecto_04</span>
           <span class="proj-badge">● live</span>
         </div>
         <div class="proj-body">
@@ -408,10 +439,43 @@
         </div>
       </div>
 
+      </div>
+      <div class="car-nav">
+        <button type="button" class="car-btn car-btn--prev" aria-label="Proyecto anterior">&#8592;</button>
+        <button type="button" class="car-btn car-btn--next" aria-label="Proyecto siguiente">&#8594;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════ FORMACIÓN ════════════ -->
+  <section class="section" id="formacion">
+    <p class="s-label">// formación</p>
+    <h2 class="s-title">Educación y <span class="gr">certificaciones</span></h2>
+
+    <div class="formacion-grid">
+
+      <!-- UTN — carrera en curso -->
+      <div class="proj-card">
+        <div class="proj-head">
+          <span class="proj-num">formación</span>
+          <span class="proj-badge proj-badge--wip">● en curso</span>
+        </div>
+        <div class="proj-body">
+          <h3 class="proj-title">Tecnicatura Universitaria en Programación</h3>
+          <p class="proj-desc">
+            Universidad Tecnológica Nacional — Facultad Regional Tucumán (2023 — actualidad, último año). Materias relevantes: Programación Web, Bases de Datos, Algoritmos y Estructuras de Datos, Paradigmas de Programación.
+          </p>
+          <div class="proj-tags">
+            <span class="tag">UTN FRT</span>
+            <span class="tag">último año</span>
+          </div>
+        </div>
+      </div>
+
       <!-- IBM RAG and Agentic AI — certificación completada -->
       <div class="proj-card">
         <div class="proj-head">
-          <span class="proj-num">proyecto_04</span>
+          <span class="proj-num">certificación</span>
           <span class="proj-badge">● completado</span>
         </div>
         <div class="proj-body">
@@ -435,11 +499,6 @@
         </div>
       </div>
 
-      </div>
-      <div class="car-nav">
-        <button class="car-btn car-btn--prev" aria-label="Proyecto anterior">&#8592;</button>
-        <button class="car-btn car-btn--next" aria-label="Proyecto siguiente">&#8594;</button>
-      </div>
     </div>
   </section>
 
@@ -494,8 +553,8 @@
 
       </div>
       <div class="car-nav">
-        <button class="car-btn car-btn--prev" aria-label="Contacto anterior">&#8592;</button>
-        <button class="car-btn car-btn--next" aria-label="Contacto siguiente">&#8594;</button>
+        <button type="button" class="car-btn car-btn--prev" aria-label="Contacto anterior">&#8592;</button>
+        <button type="button" class="car-btn car-btn--next" aria-label="Contacto siguiente">&#8594;</button>
       </div>
     </div>
   </section>
