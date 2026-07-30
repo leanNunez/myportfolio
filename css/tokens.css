@@ -67,6 +67,6 @@
 
   /* ---------- Layout ------------------------------------------------------ */
 
-  --bar-h: 40px;
+  --bar-h: 48px;  /* la barra se ve fina, pero permite targets táctiles de 44px */
   --z-bar: 100;
 }

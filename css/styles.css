@@ -72,7 +72,10 @@ code { color: var(--aqua); }
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+  /* El alto visual lo da el texto; el padding estira el área de toque a ≥44px. */
+  padding-block: 0.875rem;
 }
+.bar__session:active { color: var(--yellow); }
 
 /* Las ventanas de la sesión. En pantallas chicas la barra scrollea
    horizontal, como un tmux con muchas ventanas. */
@@ -87,11 +90,12 @@ code { color: var(--aqua); }
 .bar__tabs a {
   color: var(--fg-dim);
   text-decoration: none;
-  padding: 0.25rem 0.375rem;
+  padding: 0.875rem 0.375rem;   /* target táctil ≥44px de alto */
   white-space: nowrap;
   transition: color var(--dur) var(--ease), background-color var(--dur) var(--ease);
 }
 .bar__tabs a:hover { color: var(--bg); background: var(--fg-dim); }
+.bar__tabs a:active { color: var(--bg); background: var(--yellow); }
 
 .bar__status {
   margin-left: auto;
@@ -100,11 +104,17 @@ code { color: var(--aqua); }
   gap: var(--s-2);
   white-space: nowrap;
 }
-.bar__avail {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  color: var(--green);
+/* Mobile-first: en celular el "disponible" vive en el hero; acá aparece
+   recién cuando hay lugar. */
+.bar__avail { display: none; }
+
+@media (min-width: 720px) {
+  .bar__avail {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--green);
+  }
 }
 .pulse {
   width: 7px; height: 7px;
@@ -116,9 +126,6 @@ code { color: var(--aqua); }
 
 .bar__pos { color: var(--fg-dim); min-width: 3.5ch; text-align: right; }
 
-@media (max-width: 720px) {
-  .bar__avail { display: none; }  /* el "estado: disponible" vive en el hero */
-}
 
 /* ---------- Layout: la sesión -------------------------------------------- */
 
@@ -277,6 +284,8 @@ main {
   transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
 .btn:hover { background: var(--fg); color: var(--bg); }
+/* Active = flash de inversión, como una selección de terminal. */
+.btn:active { background: var(--orange); border-color: var(--orange); color: var(--bg); }
 
 .btn--accent {
   background: var(--green);
@@ -381,6 +390,7 @@ main {
   transition: color var(--dur) var(--ease);
 }
 .lnk:hover { color: var(--orange); }
+.lnk:active { color: var(--yellow); }
 .lnk--demo { color: var(--green); }
 
 @media (min-width: 860px) {
@@ -435,6 +445,7 @@ main {
   transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
 }
 .cmdlink:hover { border-color: var(--orange); background: var(--bg-hard); }
+.cmdlink:active { border-color: var(--yellow); background: var(--bg); }
 .cmdlink > span[aria-hidden] { color: var(--green); }
 .cmdlink__val { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
 
