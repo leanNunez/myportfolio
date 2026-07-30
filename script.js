@@ -1,54 +1,59 @@
-// ── Scroll progress bar
-window.addEventListener('scroll', () => {
-  const el = document.getElementById('sp');
-  const pct = window.pageYOffset / (document.documentElement.scrollHeight - window.innerHeight) * 100;
-  el.style.width = pct + '%';
-});
+// Sesión TUI — todo lo decorativo respeta prefers-reduced-motion y
+// degrada a página completa si este archivo no carga (gate html.js).
 
-// ── Smooth scroll para links internos
-document.querySelectorAll('a[href^="#"]').forEach(a => {
-  a.addEventListener('click', e => {
-    e.preventDefault();
-    document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
-});
+const sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ── Carousels
-document.querySelectorAll('.carousel-wrap').forEach(wrap => {
-  const track = wrap.querySelector('.car-track');
-  const prev  = wrap.querySelector('.car-btn--prev');
-  const next  = wrap.querySelector('.car-btn--next');
-  if (!track || !prev || !next) return;
+// ── Posición de scroll en la status bar, como en vim: top / % / bot.
+//    rAF-throttled: una lectura y una escritura por frame como máximo.
+const pos = document.querySelector('[data-scrollpos]');
+let ticking = false;
 
-  const scrollBy = dir => {
-    const cardW = track.firstElementChild?.getBoundingClientRect().width || 340;
-    track.scrollBy({ left: dir * (cardW + 24), behavior: 'smooth' });
-  };
+function pintarPos() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  const pct = max > 0 ? Math.round((window.scrollY / max) * 100) : 0;
+  pos.textContent = pct <= 0 ? 'top' : pct >= 100 ? 'bot' : pct + '%';
+  ticking = false;
+}
 
-  prev.addEventListener('click', () => scrollBy(-1));
-  next.addEventListener('click', () => scrollBy(1));
+if (pos) {
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(pintarPos);
+  }, { passive: true });
+  pintarPos();
+}
 
-  const sync = () => {
-    prev.disabled = track.scrollLeft <= 0;
-    next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2;
-  };
-  track.addEventListener('scroll', sync, { passive: true });
-  sync();
-});
+// ── El prompt "ejecuta" whoami: tipea el comando y muestra la salida.
+//    Con reduced-motion no se tipea nada (el CSS ya muestra la salida).
+const prompt = document.querySelector('.prompt');
+const cmd = prompt?.querySelector('[data-type]');
 
-// ── Reveal animado con stagger al hacer scroll
-const cards = document.querySelectorAll('.skill-card, .proj-card, .contact-card');
-
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const siblings = [...entry.target.parentElement.children];
-      const idx = siblings.indexOf(entry.target);
-      entry.target.style.animationDelay = (idx * 0.09) + 's';
-      entry.target.classList.add('in');
-      io.unobserve(entry.target);
+if (prompt && cmd && !sinMovimiento) {
+  const texto = cmd.textContent;
+  cmd.textContent = '';
+  let i = 0;
+  const tipear = () => {
+    cmd.textContent = texto.slice(0, ++i);
+    if (i < texto.length) {
+      setTimeout(tipear, 90);
+    } else {
+      setTimeout(() => prompt.classList.add('done'), 250);
     }
-  });
-}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+  };
+  setTimeout(tipear, 400);
+} else {
+  prompt?.classList.add('done');
+}
 
-cards.forEach(el => io.observe(el));
+// ── Reveal sobrio de panes (transition, no animation — el kill switch
+//    de reduced-motion la deja en 0.01ms y el resultado es instantáneo).
+const io = new IntersectionObserver((entradas) => {
+  for (const entrada of entradas) {
+    if (!entrada.isIntersecting) continue;
+    entrada.target.classList.add('in');
+    io.unobserve(entrada.target);
+  }
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.pane').forEach((el) => io.observe(el));
