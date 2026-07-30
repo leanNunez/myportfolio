@@ -52,4 +52,4 @@ El deploy a GitHub Pages es automático al mergear a `main`.
 
 - **Portfolio** — [leannunez.github.io/myportfolio](https://leannunez.github.io/myportfolio)
 - **GitHub** — [github.com/leanNunez](https://github.com/leanNunez)
-- **LinkedIn** — [linkedin.com/in/lean-nunez](https://www.linkedin.com/in/lean-nunez/)
+- **LinkedIn** — [Leandro Nuñez](https://www.linkedin.com/in/leandro-nu%C3%B1ez-661461388/)
