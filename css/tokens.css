@@ -1,0 +1,72 @@
+/* ==========================================================================
+   myportfolio — Design tokens
+   Fuente de verdad: docs/art-direction.md
+   Sesión TUI (tmux/Zellij) con paleta gruvbox dark. Oscuro CÁLIDO PLANO:
+   cero glow, cero blur, cero gradientes. No hardcodear valores crudos.
+   ========================================================================== */
+
+:root {
+  /* ---------- Color: gruvbox dark ---------------------------------------- */
+
+  --bg: #282828;         /* fondo de la sesión */
+  --bg-soft: #32302f;    /* superficies: panes, ventanas */
+  --bg-hard: #1d2021;    /* status bar, title bars */
+  --border-c: #504945;   /* bordes de pane */
+
+  --fg: #ebdbb2;         /* texto principal   — 10.8:1 sobre bg */
+  --fg-dim: #a89984;     /* texto secundario  — 5.3:1 sobre bg, 4.7:1 sobre bg-soft */
+  --gray: #928374;       /* SOLO decoración/bordes (4.0:1 — no pasa AA para texto) */
+
+  /* ANSI semántico. El color ES la jerarquía en una TUI. */
+  --green: #b8bb26;      /* ok / live / disponible — 7.1:1 */
+  --yellow: #fabd2f;     /* en curso / warning     — 8.7:1 */
+  --blue: #83a598;       /* links                  — 5.5:1 */
+  --orange: #fe8019;     /* acción / hover         — 5.8:1 */
+  --red: #fb4934;        /* casi no existe: 4.3:1 — solo texto grande/deco */
+  --aqua: #8ec07c;       /* acento alternativo     — 7.0:1 */
+
+  --focus: #fabd2f;      /* foco amarillo: visible sobre bg y bg-hard */
+
+  /* ---------- Tipografía -------------------------------------------------- */
+
+  /* UNA familia. En una terminal todo es mono; la personalidad la ponen
+     el color, el peso y los marcos. */
+  --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
+
+  /* Escala 1.25: 16 / 20 / 25 / 31 / 39. En TUI la jerarquía no gigantea. */
+  --t-xs: 0.75rem;                                    /* 12px — status bar */
+  --t-sm: 0.875rem;                                   /* 14px — microcopy */
+  --t-base: 1rem;                                     /* 16px — cuerpo */
+  --t-md: clamp(1.125rem, 1.05rem + 0.35vw, 1.25rem); /* 18→20 — títulos de card */
+  --t-lg: clamp(1.25rem, 1.1rem + 0.65vw, 1.5625rem); /* 20→25 — títulos de pane */
+  --t-xl: clamp(1.5625rem, 1.3rem + 1.2vw, 1.9375rem);/* 25→31 — nombre */
+
+  --lh-body: 1.6;
+  --lh-tight: 1.3;
+
+  /* ---------- Espaciado — grilla 8px, densidad tight-comfortable --------- */
+
+  --s-1: 0.5rem;   /*  8px */
+  --s-2: 1rem;     /* 16px */
+  --s-3: 1.5rem;   /* 24px */
+  --s-4: 2rem;     /* 32px */
+  --s-5: 3rem;     /* 48px */
+
+  --gutter: clamp(1rem, 0.5rem + 2vw, 2rem);
+  --pane-gap: var(--s-3);   /* gap constante entre panes, como un tiling */
+  --measure: 68ch;
+
+  /* ---------- Forma: una TUI es RECTA ------------------------------------- */
+
+  --r: 0px;                 /* sin border-radius: los panes son rectos */
+
+  /* ---------- Movimiento -------------------------------------------------- */
+
+  --dur: 150ms;
+  --ease: linear;
+
+  /* ---------- Layout ------------------------------------------------------ */
+
+  --bar-h: 48px;  /* la barra se ve fina, pero permite targets táctiles de 44px */
+  --z-bar: 100;
+}

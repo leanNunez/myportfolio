@@ -1,570 +1,355 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-16SZL4PRKB"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-16SZL4PRKB');
-</script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Leandro Nuñez — Desarrollador Full Stack especializado en IA generativa, RAG y sistemas agénticos. React, TypeScript, Node.js, PostgreSQL, LangChain. Certificado por IBM. Mirá mis proyectos y contactame.">
+
   <title>Leandro Nuñez — Full Stack Developer | IA Generativa &amp; Agentic AI</title>
+  <meta name="description" content="Leandro Nuñez — Desarrollador Full Stack especializado en IA generativa, RAG y sistemas agénticos. React, TypeScript, Node.js, PostgreSQL, LangChain. Certificado por IBM. Mirá mis proyectos y contactame.">
+  <link rel="canonical" href="https://leannunez.github.io/myportfolio/">
 
-  <link rel="preload" as="image" href="foto.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:site_name" content="leandro.dev">
+  <meta property="og:title" content="Leandro Nuñez — Full Stack Developer | IA & Agentic AI">
+  <meta property="og:description" content="Aplicaciones web full stack con IA real en producción: RAG, embeddings, asistentes con tool-calling. React · TypeScript · Node.js · Python.">
+  <meta property="og:url" content="https://leannunez.github.io/myportfolio/">
+  <meta property="og:image" content="https://leannunez.github.io/myportfolio/assets/og-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#282828">
 
-  <!-- Fonts -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Google tag (gtag.js) — después del charset, async -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-16SZL4PRKB"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-16SZL4PRKB');
+  </script>
+
+  <!-- Una sola familia, 2 pesos (antes: 3 familias, 9 archivos). -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="stylo.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <!-- Gate de JS: los reveals solo existen si van a funcionar.
+       Sin JS la página se ve completa (fix del bug de opacity:0 huérfano). -->
+  <script>document.documentElement.classList.add('js');</script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Leandro Nuñez",
+    "jobTitle": "Full Stack Developer — IA Generativa & Agentic AI",
+    "url": "https://leannunez.github.io/myportfolio/",
+    "email": "mailto:lean.p.dev@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Miguel de Tucumán",
+      "addressRegion": "Tucumán",
+      "addressCountry": "AR"
+    },
+    "sameAs": [
+      "https://github.com/leanNunez",
+      "https://www.linkedin.com/in/leandro-nu%C3%B1ez-661461388/"
+    ]
+  }
+  </script>
 </head>
+
 <body>
 
-  <!-- Barra de progreso de scroll -->
-  <div id="sp"></div>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-  <!-- Space Invaders flotantes de fondo -->
-  <div class="bg-doodles" aria-hidden="true">
+<!-- ══════════ STATUS BAR (tmux) ══════════ -->
+<header class="bar">
+  <a class="bar__session" href="#inicio">
+    <span aria-hidden="true">[</span>portfolio<span aria-hidden="true">]</span> leandro@tucuman
+  </a>
 
-    <!-- Invader A — antenas rectas, cyan -->
-    <svg class="bg-doodle" style="--x1: 12vw; --y1: 20vh; --x2: 72vw; --y2: 18vh; --x3: 44vw; --y3: 76vh; --size: 160px; --t: 28s; --delay: -6s; --c: rgba(34, 211, 238, 0.55);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="27" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="83" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2"/>
-      <rect x="2"   y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
-      <rect x="105" y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
-      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-    </svg>
-
-    <!-- Invader B — antenas en gancho, violet -->
-    <svg class="bg-doodle" style="--x1: 82vw; --y1: 20vh; --x2: 24vw; --y2: 26vh; --x3: 68vw; --y3: 82vh; --size: 145px; --t: 24s; --delay: -3s; --c: rgba(167, 139, 250, 0.55);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="30" y1="20" x2="18" y2="4"  stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="90" y1="20" x2="102" y2="4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="17"  cy="4" r="4" stroke="currentColor" stroke-width="2"/>
-      <circle cx="103" cy="4" r="4" stroke="currentColor" stroke-width="2"/>
-      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2"/>
-      <path d="M2 40 L15 48 L2 58"   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M118 40 L105 48 L118 58" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-    </svg>
-
-    <!-- Invader A — antenas rectas, green (más grande) -->
-    <svg class="bg-doodle" style="--x1: 18vw; --y1: 78vh; --x2: 62vw; --y2: 62vh; --x3: 30vw; --y3: 16vh; --size: 180px; --t: 32s; --delay: -12s; --c: rgba(74, 222, 128, 0.5);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="27" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="83" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="2"   y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="105" y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2.2"/>
-      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-    </svg>
-
-    <!-- Invader B — antenas en gancho, sky blue (más chico) -->
-    <svg class="bg-doodle" style="--x1: 54vw; --y1: 42vh; --x2: 12vw; --y2: 64vh; --x3: 88vw; --y3: 40vh; --size: 135px; --t: 20s; --delay: -9s; --c: rgba(56, 189, 248, 0.5);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <line x1="30" y1="20" x2="18" y2="4"  stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="90" y1="20" x2="102" y2="4" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
-      <circle cx="17"  cy="4" r="4" stroke="currentColor" stroke-width="2"/>
-      <circle cx="103" cy="4" r="4" stroke="currentColor" stroke-width="2"/>
-      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2"/>
-      <path d="M2 40 L15 48 L2 58"   stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M118 40 L105 48 L118 58" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-    </svg>
-
-    <!-- Invader A — antenas rectas, amber -->
-    <svg class="bg-doodle" style="--x1: 84vw; --y1: 70vh; --x2: 40vw; --y2: 86vh; --x3: 76vw; --y3: 24vh; --size: 150px; --t: 26s; --delay: -7s; --c: rgba(251, 191, 36, 0.5);" viewBox="0 0 120 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <rect x="27" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="83" y="2" width="10" height="20" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="15" y="18" width="90" height="58" rx="14" stroke="currentColor" stroke-width="2"/>
-      <rect x="2"   y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
-      <rect x="105" y="40" width="13" height="18" rx="4" stroke="currentColor" stroke-width="2"/>
-      <rect x="20" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="43" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="67" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="90" y="76" width="10" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
-      <rect x="30" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-      <rect x="70" y="30" width="20" height="22" rx="3" fill="currentColor"/>
-    </svg>
-
-  </div>
-
-  <!-- ════════════ NAV ════════════ -->
-  <nav>
-    <div class="nav-logo"><em>~/</em>leandro.dev</div>
-    <ul class="nav-links">
-      <li><a href="#inicio">inicio</a></li>
-      <li><a href="#habilidades">habilidades</a></li>
-      <li><a href="#proyectos">proyectos</a></li>
-      <li><a href="#formacion">formación</a></li>
-      <li><a href="#contacto">contacto</a></li>
-    </ul>
-    <div class="nav-badge">
-      <div class="pulse"></div>disponible
-    </div>
+  <nav class="bar__tabs" aria-label="Secciones">
+    <a href="#inicio"><span aria-hidden="true">0:</span>hero</a>
+    <a href="#habilidades"><span aria-hidden="true">1:</span>skills</a>
+    <a href="#proyectos"><span aria-hidden="true">2:</span>proyectos</a>
+    <a href="#formacion"><span aria-hidden="true">3:</span>formación</a>
+    <a href="#contacto"><span aria-hidden="true">4:</span>contacto</a>
   </nav>
 
-  <!-- ════════════ HERO ════════════ -->
-  <section class="hero" id="inicio">
-    <div class="hero-inner">
-      <div>
-        <div class="hero-chip"><span>●</span> Full Stack &middot; IA &amp; Agentes &middot; Tucumán, AR</div>
-        <h1 class="hero-name">Leandro<br><span class="gr">Nuñez</span></h1>
-        <div class="hero-role">Full Stack Developer <span class="ai">| IA Generativa &amp; Agentic AI</span></div>
-        <p class="hero-desc">
-          Construyo aplicaciones web full stack con React, TypeScript y Node.js. Integro IA real en producción: búsqueda semántica con embeddings vectoriales, asistentes conversacionales con tool-calling y sistemas RAG. Enfocado en arquitectura sólida, código limpio y experiencia de usuario.
+  <p class="bar__status">
+    <span class="bar__avail"><span class="pulse" aria-hidden="true"></span>disponible</span>
+    <span class="bar__pos" data-scrollpos aria-hidden="true">top</span>
+  </p>
+</header>
+
+<main id="contenido">
+
+  <!-- ══════════ 0:hero — neofetch ══════════ -->
+  <section class="pane" id="inicio" aria-labelledby="t-hero">
+    <h2 class="pane__title" id="t-hero"><span aria-hidden="true">0:</span>hero</h2>
+
+    <div class="fetch">
+      <img
+        class="fetch__img"
+        src="assets/foto-520.webp"
+        alt="Leandro Nuñez"
+        width="260" height="260"
+        fetchpriority="high"
+      >
+
+      <div class="fetch__info">
+        <h1 class="fetch__name">leandro<span aria-hidden="true">@</span><span class="fetch__host">tucuman</span></h1>
+        <p class="fetch__sep" aria-hidden="true">─────────────────────</p>
+
+        <dl class="fetch__data">
+          <div><dt>rol</dt><dd>Full Stack Developer — IA Generativa &amp; Agentic AI</dd></div>
+          <div><dt>stack</dt><dd>React · TypeScript · Node.js · PostgreSQL · Python</dd></div>
+          <div><dt>ia</dt><dd>RAG · embeddings · LangChain/LangGraph · tool-calling</dd></div>
+          <div><dt>uptime</dt><dd>UTN FRT — Tecnicatura en Programación, último año</dd></div>
+          <div><dt>host</dt><dd>San Miguel de Tucumán, AR</dd></div>
+          <div><dt>estado</dt><dd class="ok">disponible</dd></div>
+        </dl>
+
+        <!-- La fila de colores de neofetch: el guiño que todo linuxero reconoce. -->
+        <p class="fetch__palette" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
         </p>
-        <div class="hero-actions">
-          <a href="#proyectos" class="btn-p">Ver proyectos</a>
-          <a href="#contacto" class="btn-g">Contactar</a>
-          <a href="pdf/cv_lean_dev.pdf" download class="btn-g btn-cv">&#8595; Descargar CV</a>
-        </div>
       </div>
+    </div>
 
-      <div class="avatar-wrap">
-        <div class="avatar-ring">
-          <img
-            class="avatar-img"
-            src="foto.png"
-            alt="Leandro Nuñez"
-            onerror="this.style.display='none'; document.getElementById('av-fb').style.display='flex';"
-          >
-          <div class="avatar-fallback" id="av-fb">LN</div>
-        </div>
-      </div>
+    <div class="prompt">
+      <p class="prompt__line">
+        <span class="prompt__ps" aria-hidden="true">leandro@tucuman:~$ </span><span data-type>whoami</span><span class="cursor" aria-hidden="true"></span>
+      </p>
+      <p class="prompt__out" data-type-out>
+        Construyo aplicaciones web full stack con React, TypeScript y Node.js.
+        Integro IA real en producción: búsqueda semántica con embeddings,
+        asistentes conversacionales con tool-calling y sistemas RAG.
+        Arquitectura sólida, código limpio y experiencia de usuario.
+      </p>
+    </div>
+
+    <div class="actions">
+      <a href="#proyectos" class="btn btn--accent">ver proyectos</a>
+      <a href="#contacto" class="btn">contactar</a>
+      <a href="pdf/cv_lean_dev.pdf" download class="btn btn--cv">descargar cv</a>
     </div>
   </section>
 
-  <!-- ════════════ HABILIDADES ════════════ -->
-  <section class="section" id="habilidades">
-    <p class="s-label">// habilidades</p>
-    <h2 class="s-title">Stack <span class="gr">tecnológico</span></h2>
+  <!-- ══════════ 1:skills — pacman -Q ══════════ -->
+  <section class="pane" id="habilidades" aria-labelledby="t-skills">
+    <h2 class="pane__title" id="t-skills"><span aria-hidden="true">1:</span>skills</h2>
 
-    <div class="skills-grid">
+    <p class="cmd" aria-hidden="true">$ pacman -Q</p>
 
-      <!-- HTML5 -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/html5/html5-original.svg"
-            alt="HTML5"
-          >
+    <ul class="pkgs">
+      <li><span class="pkgs__name">javascript</span><span class="pkgs__lvl pkgs__lvl--adv">avanzado</span></li>
+      <li><span class="pkgs__name">html5</span><span class="pkgs__lvl pkgs__lvl--adv">avanzado</span></li>
+      <li><span class="pkgs__name">css3</span><span class="pkgs__lvl pkgs__lvl--adv">avanzado</span></li>
+      <li><span class="pkgs__name">agentes-ia</span><span class="pkgs__lvl pkgs__lvl--adv">avanzado</span></li>
+      <li><span class="pkgs__name">rag-langchain</span><span class="pkgs__lvl pkgs__lvl--adv">avanzado</span></li>
+      <li><span class="pkgs__name">react</span><span class="pkgs__lvl">intermedio</span></li>
+      <li><span class="pkgs__name">typescript</span><span class="pkgs__lvl">intermedio</span></li>
+      <li><span class="pkgs__name">nodejs</span><span class="pkgs__lvl">intermedio</span></li>
+      <li><span class="pkgs__name">postgresql</span><span class="pkgs__lvl">intermedio</span></li>
+      <li><span class="pkgs__name">mysql</span><span class="pkgs__lvl">intermedio</span></li>
+      <li><span class="pkgs__name">git-github</span><span class="pkgs__lvl">intermedio</span></li>
+      <li><span class="pkgs__name">linux</span><span class="pkgs__lvl">intermedio</span></li>
+    </ul>
+  </section>
+
+  <!-- ══════════ 2:proyectos — ventanas ══════════ -->
+  <section class="pane" id="proyectos" aria-labelledby="t-proyectos">
+    <h2 class="pane__title" id="t-proyectos"><span aria-hidden="true">2:</span>proyectos</h2>
+
+    <div class="wins">
+
+      <article class="win">
+        <p class="win__bar">
+          <span class="win__file" aria-hidden="true">▸ repuestero.service</span>
+          <span class="win__st win__st--ok">● active (running)</span>
+        </p>
+        <div class="win__body">
+          <h3 class="win__title">Repuestero — ERP Multi-Tenant AI-Native</h3>
+          <p class="win__desc">
+            Reescritura de un ERP legacy (Delphi/Paradox) de una casa de repuestos
+            hacia una arquitectura multi-tenant AI-native. Aislamiento entre
+            organizaciones por Row-Level Security de PostgreSQL (el <code>org_id</code>
+            se resuelve desde la base, no del JWT); asistente conversacional NL2SQL
+            orquestado con LangGraph con defensa en profundidad de 5 capas; e
+            ingesta de remitos por foto con revisión humana obligatoria
+            (Human-in-the-Loop). CI con branch protection y deploy en vivo.
+          </p>
+          <p class="win__tags" aria-label="Tecnologías">
+            <span>fastapi</span><span>sqlalchemy-2</span><span>postgresql</span><span>rls</span><span>pgvector</span><span>langgraph</span><span>groq/openai</span><span>sqlglot</span><span>react-19</span><span>supabase</span>
+          </p>
+          <p class="win__links">
+            <a href="https://repuestero.vercel.app" target="_blank" rel="noopener noreferrer" class="lnk lnk--demo">demo →</a>
+            <a href="https://github.com/leanNunez/repuestero" target="_blank" rel="noopener noreferrer" class="lnk">código</a>
+          </p>
         </div>
-        <div class="sk-name">HTML5</div>
-        <div class="sk-lvl">avanzado</div>
-      </div>
+      </article>
 
-      <!-- CSS3 -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/css3/css3-original.svg"
-            alt="CSS3"
-          >
+      <article class="win">
+        <p class="win__bar">
+          <span class="win__file" aria-hidden="true">▸ premiumtech.service</span>
+          <span class="win__st win__st--ok">● active (running)</span>
+        </p>
+        <div class="win__body">
+          <h3 class="win__title">PremiumTech — Tienda online Full Stack</h3>
+          <p class="win__desc">
+            Plataforma de venta online completa con búsqueda semántica híbrida
+            (embeddings Cohere + pgvector) y asistente conversacional con
+            tool-calling vía Groq LLM. Incluye catálogo con filtros, carrito
+            persistente, checkout, autenticación JWT, panel de administración
+            y suite de tests.
+          </p>
+          <p class="win__tags" aria-label="Tecnologías">
+            <span>react-19</span><span>typescript</span><span>nodejs</span><span>postgresql</span><span>pgvector</span><span>cohere</span><span>groq-llm</span><span>prisma</span><span>tailwind</span><span>jwt</span><span>vitest</span>
+          </p>
+          <p class="win__links">
+            <a href="https://ecommerce-tech-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="lnk lnk--demo">demo →</a>
+            <a href="https://github.com/leanNunez/Ecommerce_Tech" target="_blank" rel="noopener noreferrer" class="lnk">código</a>
+          </p>
         </div>
-        <div class="sk-name">CSS3</div>
-        <div class="sk-lvl">avanzado</div>
-      </div>
+      </article>
 
-      <!-- JavaScript -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/javascript/javascript-original.svg"
-            alt="JavaScript"
-          >
+      <article class="win">
+        <p class="win__bar">
+          <span class="win__file" aria-hidden="true">▸ chatbot-rag.service</span>
+          <span class="win__st win__st--ok">● active (running)</span>
+        </p>
+        <div class="win__body">
+          <h3 class="win__title">Chatbot con IA &amp; RAG</h3>
+          <p class="win__desc">
+            Asistente conversacional que responde preguntas sobre mi experiencia
+            y proyectos usando Retrieval-Augmented Generation. Embeddings
+            vectoriales con ChromaDB, modelo Gemini con fallback a Groq, backend
+            en FastAPI y frontend en React.
+          </p>
+          <p class="win__tags" aria-label="Tecnologías">
+            <span>python</span><span>fastapi</span><span>rag</span><span>gemini</span><span>chromadb</span><span>react</span><span>tailwind</span><span>hugging-face</span>
+          </p>
+          <p class="win__links">
+            <a href="https://portfoliochatbot-sepia.vercel.app" target="_blank" rel="noopener noreferrer" class="lnk lnk--demo">demo →</a>
+            <a href="https://github.com/leanNunez/portfolio-chatbot" target="_blank" rel="noopener noreferrer" class="lnk">código</a>
+          </p>
         </div>
-        <div class="sk-name">JavaScript</div>
-        <div class="sk-lvl">avanzado</div>
-      </div>
+      </article>
 
-      <!-- Node.js -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/nodejs/nodejs-original.svg"
-            alt="Node.js"
-          >
+      <article class="win">
+        <p class="win__bar">
+          <span class="win__file" aria-hidden="true">▸ portfolio.service</span>
+          <span class="win__st win__st--ok">● active (running)</span>
+        </p>
+        <div class="win__body">
+          <h3 class="win__title">Portafolio Profesional</h3>
+          <p class="win__desc">
+            Este mismo sitio: una sesión de terminal hecha a mano con HTML, CSS
+            y JavaScript vanilla. Sin dependencias, accesible, y con presupuesto
+            de performance: la página entera pesa menos que una sola foto del
+            diseño anterior.
+          </p>
+          <p class="win__tags" aria-label="Tecnologías">
+            <span>html</span><span>css</span><span>javascript</span><span>a11y</span><span>ux-ui</span>
+          </p>
+          <p class="win__links">
+            <a href="https://leannunez.github.io/myportfolio/" target="_blank" rel="noopener noreferrer" class="lnk lnk--demo">demo →</a>
+            <a href="https://github.com/leanNunez/myportfolio" target="_blank" rel="noopener noreferrer" class="lnk">código</a>
+          </p>
         </div>
-        <div class="sk-name">Node.js</div>
-        <div class="sk-lvl">intermedio</div>
-      </div>
-
-      <!-- MySQL -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/mysql/mysql-original.svg"
-            alt="MySQL"
-          >
-        </div>
-        <div class="sk-name">MySQL</div>
-        <div class="sk-lvl">intermedio</div>
-      </div>
-
-
-      <!-- Git & GitHub -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/git/git-original.svg"
-            alt="Git"
-          >
-        </div>
-        <div class="sk-name">Git &amp; GitHub</div>
-        <div class="sk-lvl">intermedio</div>
-      </div>
-
-      <!-- Linux -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img
-            src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/linux/linux-original.svg"
-            alt="Linux"
-          >
-        </div>
-        <div class="sk-name">Linux</div>
-        <div class="sk-lvl">intermedio</div>
-      </div>
-
-      <!-- Agentes IA — SVG inline (no existe en devicon) -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="24" cy="24" r="10" stroke="#22d3ee" stroke-width="2.5"/>
-            <circle cx="24" cy="24" r="3.5" fill="#22d3ee"/>
-            <line x1="24" y1="4"  x2="24" y2="12" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="24" y1="36" x2="24" y2="44" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="4"  y1="24" x2="12" y2="24" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="36" y1="24" x2="44" y2="24" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
-            <line x1="9"  y1="9"  x2="15" y2="15" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-            <line x1="33" y1="33" x2="39" y2="39" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-            <line x1="39" y1="9"  x2="33" y2="15" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-            <line x1="9"  y1="39" x2="15" y2="33" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-          </svg>
-        </div>
-        <div class="sk-name">Agentes IA</div>
-        <div class="sk-lvl">avanzado</div>
-      </div>
-
-      <!-- RAG & LangChain -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <ellipse cx="16" cy="11" rx="10" ry="4.5" stroke="#22d3ee" stroke-width="2.5"/>
-            <path d="M6 11v9c0 2.5 4.5 4.5 10 4.5s10-2 10-4.5v-9" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M6 20v9c0 2.5 4.5 4.5 10 4.5" stroke="#22d3ee" stroke-width="2.5" stroke-linecap="round" opacity=".6"/>
-            <path d="M28 30h6" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" opacity=".6"/>
-            <circle cx="37" cy="30" r="3.5" stroke="#22d3ee" stroke-width="2.5"/>
-            <circle cx="37" cy="41" r="3.5" stroke="#22d3ee" stroke-width="2.5"/>
-            <line x1="37" y1="33.5" x2="37" y2="37.5" stroke="#22d3ee" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="sk-name">RAG &amp; LangChain</div>
-        <div class="sk-lvl">avanzado</div>
-      </div>
-
-      <!-- React -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/react/react-original.svg" alt="React">
-        </div>
-        <div class="sk-name">React</div>
-        <div class="sk-lvl">intermedio</div>
-      </div>
-
-      <!-- TypeScript -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/typescript/typescript-original.svg" alt="TypeScript">
-        </div>
-        <div class="sk-name">TypeScript</div>
-        <div class="sk-lvl">intermedio</div>
-      </div>
-
-      <!-- PostgreSQL -->
-      <div class="skill-card">
-        <div class="sk-icon">
-          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL">
-        </div>
-        <div class="sk-name">PostgreSQL</div>
-        <div class="sk-lvl">intermedio</div>
-      </div>
+      </article>
 
     </div>
   </section>
 
-  <!-- ════════════ PROYECTOS ════════════ -->
-  <section class="section" id="proyectos">
-    <p class="s-label">// proyectos</p>
-    <h2 class="s-title">Trabajo <span class="gr">destacado</span></h2>
+  <!-- ══════════ 3:formación — systemctl status ══════════ -->
+  <section class="pane" id="formacion" aria-labelledby="t-formacion">
+    <h2 class="pane__title" id="t-formacion"><span aria-hidden="true">3:</span>formación</h2>
 
-    <div class="carousel-wrap">
-      <div class="car-track">
+    <p class="cmd" aria-hidden="true">$ systemctl status formacion.target</p>
 
-      <!-- Repuestero — ERP multi-tenant AI-native, proyecto insignia -->
-      <div class="proj-card">
-        <div class="proj-head">
-          <span class="proj-num">proyecto_01</span>
-          <span class="proj-badge">● live</span>
-        </div>
-        <div class="proj-body">
-          <h3 class="proj-title">Repuestero — ERP Multi-Tenant AI-Native</h3>
-          <p class="proj-desc">
-            Reescritura de un ERP legacy (Delphi/Paradox) de una casa de repuestos hacia una arquitectura multi-tenant AI-native. Aislamiento entre organizaciones por Row-Level Security de PostgreSQL (el <code>org_id</code> se resuelve desde la base, no del JWT); asistente conversacional NL2SQL orquestado con LangGraph con defensa en profundidad de 5 capas; e ingesta de remitos por foto con revisión humana obligatoria (Human-in-the-Loop). CI con branch protection y deploy en vivo.
-          </p>
-          <div class="proj-tags">
-            <span class="tag">FastAPI</span>
-            <span class="tag">SQLAlchemy 2.0</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">RLS multi-tenant</span>
-            <span class="tag">pgvector</span>
-            <span class="tag">LangGraph</span>
-            <span class="tag">Groq/OpenAI</span>
-            <span class="tag">sqlglot</span>
-            <span class="tag">React 19</span>
-            <span class="tag">Supabase</span>
-          </div>
-          <div class="proj-links">
-            <a href="https://repuestero.vercel.app" target="_blank" rel="noopener noreferrer" class="pl pl-demo">Demo →</a>
-            <a href="https://github.com/leanNunez/repuestero" target="_blank" rel="noopener noreferrer" class="pl pl-code">Código</a>
-          </div>
-        </div>
-      </div>
+    <div class="units">
 
-      <!-- E-commerce Full Stack — proyecto destacado con links reales -->
-      <div class="proj-card">
-        <div class="proj-head">
-          <span class="proj-num">proyecto_02</span>
-          <span class="proj-badge">● live</span>
-        </div>
-        <div class="proj-body">
-          <h3 class="proj-title">PremiumTech — E-commerce Full Stack</h3>
-          <p class="proj-desc">
-            Plataforma e-commerce completa con búsqueda semántica híbrida (embeddings Cohere + pgvector) y asistente conversacional con tool-calling vía Groq LLM. Incluye catálogo con filtros, carrito persistente, checkout, autenticación JWT, panel de administración y suite de tests.
-          </p>
-          <div class="proj-tags">
-            <span class="tag">React 19</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Node.js</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">pgvector</span>
-            <span class="tag">Cohere</span>
-            <span class="tag">Groq LLM</span>
-            <span class="tag">Prisma</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">JWT</span>
-            <span class="tag">Vitest</span>
-          </div>
-          <div class="proj-links">
-            <a href="https://ecommerce-tech-nu.vercel.app/" target="_blank" rel="noopener noreferrer" class="pl pl-demo">Demo →</a>
-            <a href="https://github.com/leanNunez/Ecommerce_Tech" target="_blank" rel="noopener noreferrer" class="pl pl-code">Código</a>
-          </div>
-        </div>
-      </div>
+      <article class="unit">
+        <h3 class="unit__name">
+          <span class="unit__dot unit__dot--wip" aria-hidden="true">●</span>
+          utn-tecnicatura.service <span class="unit__state unit__state--wip">activating (último año)</span>
+        </h3>
+        <p class="unit__desc">
+          Tecnicatura Universitaria en Programación — Universidad Tecnológica
+          Nacional, Facultad Regional Tucumán (2023 — actualidad). Materias
+          relevantes: Programación Web, Bases de Datos, Algoritmos y Estructuras
+          de Datos, Paradigmas de Programación.
+        </p>
+      </article>
 
-      <!-- Chatbot RAG — live -->
-      <div class="proj-card">
-        <div class="proj-head">
-          <span class="proj-num">proyecto_03</span>
-          <span class="proj-badge">● live</span>
-        </div>
-        <div class="proj-body">
-          <h3 class="proj-title">Chatbot con IA &amp; RAG</h3>
-          <p class="proj-desc">
-            Asistente conversacional que responde preguntas sobre mi experiencia y proyectos usando Retrieval-Augmented Generation. Embeddings vectoriales con ChromaDB, modelo Gemini con fallback a Groq, backend en FastAPI y frontend en React.
-          </p>
-          <div class="proj-tags">
-            <span class="tag">Python</span>
-            <span class="tag">FastAPI</span>
-            <span class="tag">RAG</span>
-            <span class="tag">Google Gemini</span>
-            <span class="tag">ChromaDB</span>
-            <span class="tag">React</span>
-            <span class="tag">Tailwind CSS</span>
-            <span class="tag">Hugging Face</span>
-          </div>
-          <div class="proj-links">
-            <a href="https://portfoliochatbot-sepia.vercel.app" target="_blank" rel="noopener noreferrer" class="pl pl-demo">Demo →</a>
-            <a href="https://github.com/leanNunez/portfolio-chatbot" target="_blank" rel="noopener noreferrer" class="pl pl-code">Código</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Portfolio -->
-      <div class="proj-card">
-        <div class="proj-head">
-          <span class="proj-num">proyecto_04</span>
-          <span class="proj-badge">● live</span>
-        </div>
-        <div class="proj-body">
-          <h3 class="proj-title">Portafolio Profesional</h3>
-          <p class="proj-desc">
-            Portafolio personal con animaciones CSS, scroll progresivo y arquitectura modular. Enfocado en performance, accesibilidad y una experiencia de usuario de alto nivel.
-          </p>
-          <div class="proj-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-            <span class="tag">UX/UI</span>
-          </div>
-          <div class="proj-links">
-            <a href="https://leannunez.github.io/myportfolio/" target="_blank" rel="noopener noreferrer" class="pl pl-demo">Demo →</a>
-            <a href="https://github.com/leanNunez/myportfolio" target="_blank" rel="noopener noreferrer" class="pl pl-code">Código</a>
-          </div>
-        </div>
-      </div>
-
-      </div>
-      <div class="car-nav">
-        <button type="button" class="car-btn car-btn--prev" aria-label="Proyecto anterior">&#8592;</button>
-        <button type="button" class="car-btn car-btn--next" aria-label="Proyecto siguiente">&#8594;</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════════ FORMACIÓN ════════════ -->
-  <section class="section" id="formacion">
-    <p class="s-label">// formación</p>
-    <h2 class="s-title">Educación y <span class="gr">certificaciones</span></h2>
-
-    <div class="formacion-grid">
-
-      <!-- UTN — carrera en curso -->
-      <div class="proj-card">
-        <div class="proj-head">
-          <span class="proj-num">formación</span>
-          <span class="proj-badge proj-badge--wip">● en curso</span>
-        </div>
-        <div class="proj-body">
-          <h3 class="proj-title">Tecnicatura Universitaria en Programación</h3>
-          <p class="proj-desc">
-            Universidad Tecnológica Nacional — Facultad Regional Tucumán (2023 — actualidad, último año). Materias relevantes: Programación Web, Bases de Datos, Algoritmos y Estructuras de Datos, Paradigmas de Programación.
-          </p>
-          <div class="proj-tags">
-            <span class="tag">UTN FRT</span>
-            <span class="tag">último año</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- IBM RAG and Agentic AI — certificación completada -->
-      <div class="proj-card">
-        <div class="proj-head">
-          <span class="proj-num">certificación</span>
-          <span class="proj-badge">● completado</span>
-        </div>
-        <div class="proj-body">
-          <h3 class="proj-title">IBM RAG and Agentic AI — Certificado profesional</h3>
-          <p class="proj-desc">
-            Certificado profesional de IBM (10 cursos, jul 2026). Construcción de aplicaciones de IA generativa con RAG, bases de datos vectoriales y agentes autónomos: function calling, orquestación con LangChain y LangGraph, arquitecturas multi-agente con CrewAI y AutoGen, agentes sobre MCP y un capstone final.
-          </p>
-          <div class="proj-tags">
-            <span class="tag">Python</span>
-            <span class="tag">RAG</span>
-            <span class="tag">LangChain</span>
-            <span class="tag">LangGraph</span>
-            <span class="tag">CrewAI</span>
-            <span class="tag">MCP</span>
-            <span class="tag">Vector DBs</span>
-          </div>
-          <div class="proj-links">
-            <a href="https://coursera.org/verify/professional-cert/QWM3S2AR4S9Y" target="_blank" rel="noopener noreferrer" class="pl pl-demo">Verificar credencial →</a>
-            <a href="pdf/ibm_rag_agentic_ai.pdf" target="_blank" rel="noopener noreferrer" class="pl pl-code">Certificado</a>
-          </div>
-        </div>
-      </div>
+      <article class="unit">
+        <h3 class="unit__name">
+          <span class="unit__dot" aria-hidden="true">●</span>
+          ibm-rag-agentic-ai.cert <span class="unit__state">active (completado)</span>
+        </h3>
+        <p class="unit__desc">
+          Certificado profesional de IBM (10 cursos, jul 2026). Construcción de
+          aplicaciones de IA generativa con RAG, bases de datos vectoriales y
+          agentes autónomos: function calling, orquestación con LangChain y
+          LangGraph, arquitecturas multi-agente con CrewAI y AutoGen, agentes
+          sobre MCP y un capstone final.
+        </p>
+        <p class="win__links">
+          <a href="https://coursera.org/verify/professional-cert/QWM3S2AR4S9Y" target="_blank" rel="noopener noreferrer" class="lnk lnk--demo">verificar credencial →</a>
+          <a href="pdf/ibm_rag_agentic_ai.pdf" target="_blank" rel="noopener noreferrer" class="lnk">certificado</a>
+        </p>
+      </article>
 
     </div>
   </section>
 
-  <!-- ════════════ CONTACTO ════════════ -->
-  <section class="section" id="contacto">
-    <p class="s-label">// contacto</p>
-    <h2 class="s-title">Listo para sumar a <span class="gr">tu equipo</span></h2>
+  <!-- ══════════ 4:contacto — comandos ══════════ -->
+  <section class="pane" id="contacto" aria-labelledby="t-contacto">
+    <h2 class="pane__title" id="t-contacto"><span aria-hidden="true">4:</span>contacto</h2>
 
-    <div class="carousel-wrap carousel-wrap--sm">
-      <div class="car-track">
+    <p class="pane__lead">Listo para sumar a tu equipo.</p>
 
-      <a href="mailto:lean.p.dev@gmail.com" class="contact-card">
-        <div class="ci-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="4" width="20" height="16" rx="2.5"/>
-            <path d="M2 8l10 6 10-6"/>
-          </svg>
-        </div>
-        <div class="c-lbl">email</div>
-        <div class="c-val">lean.p.dev@gmail.com</div>
-      </a>
-
-      <a href="https://github.com/leanNunez" target="_blank" rel="noopener noreferrer" class="contact-card">
-        <div class="ci-wrap">
-          <svg viewBox="0 0 24 24" fill="#f1f5f9">
-            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0012 2z"/>
-          </svg>
-        </div>
-        <div class="c-lbl">github</div>
-        <div class="c-val">@leanNunez</div>
-      </a>
-
-      <a href="https://www.linkedin.com/in/leandro-nu%C3%B1ez-661461388/" target="_blank" rel="noopener noreferrer" class="contact-card">
-        <div class="ci-wrap">
-          <svg viewBox="0 0 24 24" fill="#0ea5e9">
-            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-          </svg>
-        </div>
-        <div class="c-lbl">linkedin</div>
-        <div class="c-val">Leandro Nuñez</div>
-      </a>
-
-      <a href="https://wa.me/5493814627108" target="_blank" rel="noopener noreferrer" class="contact-card">
-        <div class="ci-wrap">
-          <svg viewBox="0 0 24 24" fill="#4ade80">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-        </div>
-        <div class="c-lbl">whatsapp</div>
-        <div class="c-val">+54 381 462-7108</div>
-      </a>
-
-      </div>
-      <div class="car-nav">
-        <button type="button" class="car-btn car-btn--prev" aria-label="Contacto anterior">&#8592;</button>
-        <button type="button" class="car-btn car-btn--next" aria-label="Contacto siguiente">&#8594;</button>
-      </div>
-    </div>
+    <ul class="cmds">
+      <li>
+        <a class="cmdlink" href="mailto:lean.p.dev@gmail.com">
+          <span aria-hidden="true">$ </span>mail <span class="cmdlink__val">lean.p.dev@gmail.com</span>
+        </a>
+      </li>
+      <li>
+        <a class="cmdlink" href="https://github.com/leanNunez" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">$ </span>xdg-open <span class="cmdlink__val">github.com/leanNunez</span>
+        </a>
+      </li>
+      <li>
+        <a class="cmdlink" href="https://www.linkedin.com/in/leandro-nu%C3%B1ez-661461388/" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">$ </span>xdg-open <span class="cmdlink__val">linkedin: Leandro Nuñez</span>
+        </a>
+      </li>
+      <li>
+        <a class="cmdlink" href="https://wa.me/5493814627108" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">$ </span>wa <span class="cmdlink__val">+54 381 462-7108</span>
+        </a>
+      </li>
+    </ul>
   </section>
 
-  <!-- ════════════ FOOTER ════════════ -->
-  <footer>
-    <div>© 2026 <span>Leandro Nuñez</span></div>
-    <div>Hecho con <span>HTML · CSS · JS</span> — sin frameworks</div>
-  </footer>
+</main>
 
-  <script src="script.js"></script>
+<!-- ══════════ STATUS LINE inferior ══════════ -->
+<footer class="statusline">
+  <p>© 2026 Leandro Nuñez · hecho a mano — HTML, CSS y JS, sin frameworks</p>
+  <p aria-hidden="true">exit 0</p>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>

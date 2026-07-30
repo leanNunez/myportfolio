@@ -22,11 +22,19 @@ Construyo aplicaciones reales de punta a punta: APIs con FastAPI/Express sobre P
 
 ## Este repositorio
 
-Portfolio estático, sin build step ni dependencias:
+Portfolio estático, sin build step ni dependencias. El diseño es una
+**sesión de terminal (tmux/Zellij) con paleta gruvbox**: status bar con
+posición de scroll estilo vim, secciones como panes, hero estilo neofetch
+y skills como salida de `pacman -Q`. La dirección de arte completa vive en
+[`docs/art-direction.md`](docs/art-direction.md).
 
 - `index.html` — estructura y contenido.
-- `stylo.css` — estilos (design tokens, grid, carruseles, responsive).
-- `script.js` — interacciones (navegación, carruseles, animaciones on-scroll).
+- `css/tokens.css` — design tokens (paleta gruvbox, escala, espaciado).
+- `css/styles.css` — componentes (status bar, panes, ventanas, prompt).
+- `script.js` — posición de scroll (rAF), typing del prompt, reveals.
+  Todo respeta `prefers-reduced-motion` y sin JS la página se ve completa.
+- `assets/` — foto en WebP (8,9 KB — el PNG original pesaba 9,5 MB) y
+  tarjeta Open Graph.
 
 ### Correrlo local
 
@@ -44,4 +52,4 @@ El deploy a GitHub Pages es automático al mergear a `main`.
 
 - **Portfolio** — [leannunez.github.io/myportfolio](https://leannunez.github.io/myportfolio)
 - **GitHub** — [github.com/leanNunez](https://github.com/leanNunez)
-- **LinkedIn** — [linkedin.com/in/lean-nunez](https://www.linkedin.com/in/lean-nunez/)
+- **LinkedIn** — [Leandro Nuñez](https://www.linkedin.com/in/leandro-nu%C3%B1ez-661461388/)
