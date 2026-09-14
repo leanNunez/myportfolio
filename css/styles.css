@@ -397,6 +397,9 @@ main {
   .wins { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* Separación entre el grupo "profesionales" (units) y "personales" (wins). */
+.units + .cmd { margin-top: var(--s-4); }
+
 /* ---------- 3:formación — systemctl status ---------------------------------- */
 
 .units { display: grid; gap: var(--s-3); }

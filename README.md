@@ -6,9 +6,9 @@ Sitio personal de portfolio, construido en **HTML5, CSS3 y JavaScript vanilla** 
 
 ## Sobre mí
 
-Desarrollador **Full Stack** con foco en **IA generativa** (RAG, NL2SQL, sistemas agénticos). Curso el **último año** de la Tecnicatura Universitaria en Programación (UTN FRT) y estoy certificado por IBM en *RAG and Agentic AI*.
+Desarrollador **Full Stack** con sistemas en producción usados por clientes reales. Stack principal Python/FastAPI + PostgreSQL en backend y React/TypeScript en frontend, con integración de IA generativa (RAG, agentes, LLMs) cuando el problema lo pide. Curso el **último año** de la Tecnicatura Universitaria en Programación (UTN FRT) y estoy certificado por IBM en *RAG and Agentic AI*.
 
-Construyo aplicaciones reales de punta a punta: APIs con FastAPI/Express sobre PostgreSQL, frontends en React 19, e integración de LLMs en producción. Trabajo principalmente desde la terminal en Linux.
+Desarrollo freelance bajo la marca **LeanDev**: ciclo completo con el cliente, desde el relevamiento hasta el deploy y soporte. Trabajo principalmente desde la terminal en Linux.
 
 ## Stack
 
@@ -52,4 +52,4 @@ El deploy a GitHub Pages es automático al mergear a `main`.
 
 - **Portfolio** — [leannunez.github.io/myportfolio](https://leannunez.github.io/myportfolio)
 - **GitHub** — [github.com/leanNunez](https://github.com/leanNunez)
-- **LinkedIn** — [Leandro Nuñez](https://www.linkedin.com/in/leandro-nu%C3%B1ez-661461388/)
+- **LinkedIn** — [Leandro Nuñez](https://www.linkedin.com/in/lean-nunez/)
