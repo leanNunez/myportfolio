@@ -14,13 +14,26 @@
   <meta property="og:title" content="Leandro Nuñez — Full Stack Developer | Python, FastAPI & React">
   <meta property="og:description" content="Desarrollador Full Stack: Python/FastAPI + PostgreSQL en backend, React/TypeScript en frontend, con integración de IA generativa.">
   <meta property="og:url" content="https://leannunez.github.io/myportfolio/">
-  <meta property="og:image" content="https://leannunez.github.io/myportfolio/assets/og-card.png">
+  <!-- ?v= rompe la caché de WhatsApp/LinkedIn cuando cambia la imagen. -->
+  <meta property="og:image" content="https://leannunez.github.io/myportfolio/assets/og-card.png?v=2">
+  <meta property="og:image:secure_url" content="https://leannunez.github.io/myportfolio/assets/og-card.png?v=2">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Leandro Nuñez, Full Stack Developer: Python, FastAPI y React">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#282828">
+  <meta name="twitter:title" content="Leandro Nuñez — Full Stack Developer | Python, FastAPI & React">
+  <meta name="twitter:description" content="Desarrollador Full Stack: Python/FastAPI + PostgreSQL en backend, React/TypeScript en frontend, con integración de IA generativa.">
+  <meta name="twitter:image" content="https://leannunez.github.io/myportfolio/assets/og-card.png?v=2">
+  <meta name="twitter:image:alt" content="Leandro Nuñez, Full Stack Developer: Python, FastAPI y React">
+  <meta name="author" content="Leandro Nuñez">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="theme-color" content="#0a0d12">
+  <meta name="color-scheme" content="dark">
 
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
   <!-- Google tag (gtag.js) — después del charset, async -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-16SZL4PRKB"></script>
@@ -46,21 +59,33 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Leandro Nuñez",
-    "jobTitle": "Full Stack Developer — Python, FastAPI & React",
+    "@type": "ProfilePage",
     "url": "https://leannunez.github.io/myportfolio/",
-    "email": "mailto:lean.p.dev@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "San Miguel de Tucumán",
-      "addressRegion": "Tucumán",
-      "addressCountry": "AR"
-    },
-    "sameAs": [
-      "https://github.com/leanNunez",
-      "https://www.linkedin.com/in/lean-nunez/"
-    ]
+    "name": "Leandro Nuñez — Full Stack Developer",
+    "inLanguage": "es-AR",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "Leandro Nuñez",
+      "jobTitle": "Full Stack Developer — Python, FastAPI & React",
+      "url": "https://leannunez.github.io/myportfolio/",
+      "image": "https://leannunez.github.io/myportfolio/assets/foto-520.webp",
+      "email": "mailto:lean.p.dev@gmail.com",
+      "knowsAbout": ["Python", "FastAPI", "PostgreSQL", "React", "TypeScript", "IA generativa", "RAG", "LangChain", "LangGraph"],
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "Universidad Tecnológica Nacional — Facultad Regional Tucumán"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Miguel de Tucumán",
+        "addressRegion": "Tucumán",
+        "addressCountry": "AR"
+      },
+      "sameAs": [
+        "https://github.com/leanNunez",
+        "https://www.linkedin.com/in/lean-nunez/"
+      ]
+    }
   }
   </script>
 </head>
@@ -71,7 +96,7 @@
 
 <!-- ══════════ Marca: solo el nombre y el estado, sin barra de navegación ══════════ -->
 <header class="mark">
-  <h1 class="mark__name">leandro<span aria-hidden="true">@</span>tucuman</h1>
+  <h1 class="mark__name"><span aria-hidden="true">leandro@tucuman</span><span class="sr-only">Leandro Nuñez — Full Stack Developer en Tucumán</span></h1>
   <p class="mark__status">
     <span class="pulse" aria-hidden="true"></span>disponible
     <span class="mark__sep" aria-hidden="true">·</span>
