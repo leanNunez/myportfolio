@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+.l{stroke:#ff7a6b;stroke-width:1.6}.d{stroke:#3a4552;stroke-width:1.2}.m{stroke:#8b95a1;stroke-width:1.2}.a{stroke:#d7dce2;stroke-width:1.6}
+.p{fill:#10151c}.t{fill:#8b95a1;stroke:none;font:600 9px ui-monospace,monospace}
+.blink{animation:b 1.1s steps(2,end) infinite}@keyframes b{50%{opacity:0}}
+.flow{stroke-dasharray:4 5;animation:f 1.6s linear infinite}@keyframes f{to{stroke-dashoffset:-18}}
+@media (prefers-reduced-motion:reduce){.blink,.flow{animation:none}}
+</style>
+<rect width="320" height="200" fill="#0a0d12"/>
+<pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#1e2630"/></pattern>
+<rect width="320" height="200" fill="url(#g)"/>
+<path class="d flow" d="M20 168c40-6 52-30 78-52"/>
+<!-- avión de papel -->
+<path class="l p" d="M98 112l140-66-52 96z"/>
+<path class="l" d="M238 46l-94 74 6 32 12-22"/>
+<path class="m" d="M144 120l42 22"/>
+<!-- sobre -->
+<rect class="a p" x="214" y="104" width="64" height="42"/>
+<path class="a" d="M214 104l32 24 32-24M214 146l24-20M278 146l-24-20"/>
+<text class="t" x="40" y="42">@</text>
+<path class="d" d="M60 70h2M282 76h2M46 96h2"/>
+</svg>

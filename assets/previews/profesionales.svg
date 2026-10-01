@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+.l{stroke:#3dff8a;stroke-width:1.6}.d{stroke:#3a4552;stroke-width:1.2}.m{stroke:#8b95a1;stroke-width:1.2}.a{stroke:#d7dce2;stroke-width:1.6}
+.p{fill:#10151c}.t{fill:#8b95a1;stroke:none;font:600 9px ui-monospace,monospace}
+.blink{animation:b 1.1s steps(2,end) infinite}@keyframes b{50%{opacity:0}}
+.flow{stroke-dasharray:4 5;animation:f 1.6s linear infinite}@keyframes f{to{stroke-dashoffset:-18}}
+@media (prefers-reduced-motion:reduce){.blink,.flow{animation:none}}
+</style>
+<rect width="320" height="200" fill="#0a0d12"/>
+<pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#1e2630"/></pattern>
+<rect width="320" height="200" fill="url(#g)"/>
+<!-- celular: app del repartidor (PWA offline) -->
+<rect class="l p" x="62" y="14" width="74" height="132" rx="7"/>
+<path class="d" d="M90 21h18"/>
+<rect class="d" x="69" y="28" width="60" height="108"/>
+<!-- sin señal -->
+<path class="a" d="M108 40a10 10 0 0 1 14 0M111 44a5 5 0 0 1 8 0M107 36l16 10"/>
+<path class="m" d="M74 40h22"/>
+<!-- paradas -->
+<rect class="l" x="74" y="54" width="7" height="7"/><path class="l" d="M75.5 57.5l2 2 3-4"/><path class="m" d="M86 57.5h36"/>
+<rect class="l" x="74" y="68" width="7" height="7"/><path class="l" d="M75.5 71.5l2 2 3-4"/><path class="m" d="M86 71.5h30"/>
+<rect class="a" x="74" y="82" width="7" height="7"/><path class="a" d="M86 85.5h34"/>
+<rect class="d" x="74" y="96" width="7" height="7"/><path class="d" d="M86 99.5h26"/>
+<rect class="d" x="74" y="110" width="7" height="7"/><path class="d" d="M86 113.5h32"/>
+<!-- cola de sincronización -->
+<path class="l flow" d="M142 62c18-10 30-10 46-4"/>
+<path class="l" d="M183 52l6 6-8 3"/>
+<path class="m flow" d="M188 92c-16 8-30 8-46 2"/>
+<path class="m" d="M147 88l-6 6 8 2"/>
+<text class="t" x="150" y="80">sync</text>
+<!-- backend -->
+<rect class="l p" x="196" y="20" width="84" height="26"/>
+<path class="d" d="M204 33h40"/><circle class="a blink" cx="266" cy="33" r="2.5" fill="#d7dce2"/>
+<!-- base de datos: libro mayor append-only -->
+<path class="l p" d="M200 62v56c0 6 18 10 38 10s38-4 38-10V62"/>
+<ellipse class="l p" cx="238" cy="62" rx="38" ry="10"/>
+<path class="m" d="M214 82h32M214 92h40M214 102h26M214 112h36"/>
+<path class="a" d="M256 82h6M262 92h6M248 102h6M258 112h6"/>
+<path class="d" d="M238 46v6"/>
+</svg>

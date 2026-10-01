@@ -1,31 +1,54 @@
 /* ==========================================================================
    myportfolio — Design tokens
    Fuente de verdad: docs/art-direction.md
-   Sesión TUI (tmux/Zellij) con paleta gruvbox dark. Oscuro CÁLIDO PLANO:
-   cero glow, cero blur, cero gradientes. No hardcodear valores crudos.
+   Visor AR sobre tinta azul-noche. Cada sección tiene su color de terminal
+   (como `ls --color`: el color ES la categoría) y el visor se tiñe con el
+   de la card centrada (--accent, lo escribe js/deck.js).
+   No hardcodear valores crudos.
    ========================================================================== */
 
+/* Registrado para que el cambio de color del visor se pueda transicionar. */
+@property --accent {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #ffb454;
+}
+
 :root {
-  /* ---------- Color: gruvbox dark ---------------------------------------- */
+  /* ---------- Neutros: tinta azul-noche, fríos -------------------------- */
 
-  --bg: #282828;         /* fondo de la sesión */
-  --bg-soft: #32302f;    /* superficies: panes, ventanas */
-  --bg-hard: #1d2021;    /* status bar, title bars */
-  --border-c: #504945;   /* bordes de pane */
+  --bg: #0a0d12;         /* fondo */
+  --bg-soft: #10151c;    /* superficies: cards, ventanas */
+  --bg-hard: #07090d;    /* title bars, barras */
+  --bg-glass: rgba(10, 13, 18, 0.86);
+  --border-c: #1e2630;   /* bordes */
 
-  --fg: #ebdbb2;         /* texto principal   — 10.8:1 sobre bg */
-  --fg-dim: #a89984;     /* texto secundario  — 5.3:1 sobre bg, 4.7:1 sobre bg-soft */
-  --gray: #928374;       /* SOLO decoración/bordes (4.0:1 — no pasa AA para texto) */
+  --fg: #d7dce2;         /* texto principal  — ~14:1 sobre bg */
+  --fg-dim: #8b95a1;     /* texto secundario — ~6.3:1 sobre bg */
+  --gray: #3a4552;       /* SOLO decoración/bordes (no pasa AA para texto) */
 
-  /* ANSI semántico. El color ES la jerarquía en una TUI. */
-  --green: #b8bb26;      /* ok / live / disponible — 7.1:1 */
-  --yellow: #fabd2f;     /* en curso / warning     — 8.7:1 */
-  --blue: #83a598;       /* links                  — 5.5:1 */
-  --orange: #fe8019;     /* acción / hover         — 5.8:1 */
-  --red: #fb4934;        /* casi no existe: 4.3:1 — solo texto grande/deco */
-  --aqua: #8ec07c;       /* acento alternativo     — 7.0:1 */
+  /* ---------- Un color por sección (paleta ANSI) ------------------------ */
 
-  --focus: #fabd2f;      /* foco amarillo: visible sobre bg y bg-hard */
+  --c-amber: #ffb454;    /* 01 sobre mí */
+  --c-cyan: #5ccfe6;     /* 02 skills */
+  --c-green: #3dff8a;    /* 03 profesionales — "en producción" */
+  --c-magenta: #ff6ac1;  /* 04 personales */
+  --c-coral: #ff7a6b;    /* 05 contacto */
+
+  /* ---------- Semánticos (dentro de las secciones) ----------------------- */
+
+  --green: var(--c-green);   /* ok / live / disponible */
+  --yellow: #ffd173;         /* en curso / títulos */
+  --blue: var(--c-cyan);     /* links */
+  --orange: var(--c-amber);  /* hover / acción */
+  --red: var(--c-coral);     /* casi no existe */
+  --aqua: #95e6cb;           /* tags, código */
+
+  --focus: #ffd173;      /* foco: visible sobre bg y sobre cualquier acento */
+
+  /* Color del visor: el de la card centrada. Transición en :root. */
+  --accent: var(--c-amber);
+  --dur-tint: 600ms;
 
   /* ---------- Tipografía -------------------------------------------------- */
 
@@ -34,6 +57,7 @@
   --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Code", monospace;
 
   /* Escala 1.25: 16 / 20 / 25 / 31 / 39. En TUI la jerarquía no gigantea. */
+  --t-2xs: 0.6875rem;                                 /* 11px — ayudas del HUD */
   --t-xs: 0.75rem;                                    /* 12px — status bar */
   --t-sm: 0.875rem;                                   /* 14px — microcopy */
   --t-base: 1rem;                                     /* 16px — cuerpo */
@@ -67,6 +91,5 @@
 
   /* ---------- Layout ------------------------------------------------------ */
 
-  --bar-h: 48px;  /* la barra se ve fina, pero permite targets táctiles de 44px */
-  --z-bar: 100;
+  --z-bar: 100;   /* marca fija en las esquinas */
 }

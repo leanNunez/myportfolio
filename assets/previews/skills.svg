@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+.l{stroke:#5ccfe6;stroke-width:1.6}.d{stroke:#3a4552;stroke-width:1.2}.m{stroke:#8b95a1;stroke-width:1.2}.a{stroke:#d7dce2;stroke-width:1.6}
+.p{fill:#10151c}.t{fill:#8b95a1;stroke:none;font:600 9px ui-monospace,monospace}
+.blink{animation:b 1.1s steps(2,end) infinite}@keyframes b{50%{opacity:0}}
+.flow{stroke-dasharray:4 5;animation:f 1.6s linear infinite}@keyframes f{to{stroke-dashoffset:-18}}
+.float{animation:fl 3.2s ease-in-out infinite}.f2{animation-delay:-1.07s}.f3{animation-delay:-2.13s}@keyframes fl{50%{transform:translateY(-5px)}}
+@media (prefers-reduced-motion:reduce){.blink,.flow,.float{animation:none}}
+</style>
+<rect width="320" height="200" fill="#0a0d12"/>
+<pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#1e2630"/></pattern>
+<rect width="320" height="200" fill="url(#g)"/>
+<g class="flow d"><path d="M160 66v8M160 108v8"/></g>
+<g transform="translate(0 136)"><g class="float">
+  <path class="d" fill="#0a0d12" d="M90 0v10l70 22 70-22V0"/>
+  <path class="l p" d="M160-22l70 22-70 22-70-22z"/>
+  <ellipse class="a" cx="160" cy="-4" rx="12" ry="4"/><path class="a" d="M148-4v7c0 2 5 4 12 4s12-2 12-4v-7"/>
+  <path class="d" d="M232 0h5"/><text class="t" x="240" y="3">db</text>
+</g></g>
+<g transform="translate(0 94)"><g class="float f2">
+  <path class="d" fill="#0a0d12" d="M90 0v10l70 22 70-22V0"/>
+  <path class="l p" d="M160-22l70 22-70 22-70-22z"/>
+  <path class="a" d="M150-6l-6 6 6 6M170-6l6 6-6 6M163-8l-6 16"/>
+  <path class="d" d="M232 0h5"/><text class="t" x="240" y="3">api</text>
+</g></g>
+<g transform="translate(0 52)"><g class="float f3">
+  <path class="d" fill="#0a0d12" d="M90 0v10l70 22 70-22V0"/>
+  <path class="l p" d="M160-22l70 22-70 22-70-22z"/>
+  <path class="a" d="M146-2l14-5 14 5-14 5z"/><path class="m" d="M146 4l14 5 14-5"/>
+  <path class="d" d="M232 0h5"/><text class="t" x="240" y="3">ui</text>
+</g></g>
+</svg>

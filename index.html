@@ -39,8 +39,8 @@
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Gate de JS: los reveals solo existen si van a funcionar.
-       Sin JS la página se ve completa (fix del bug de opacity:0 huérfano). -->
+  <!-- Gate de JS: el deck solo existe si js/deck.js corre. Sin JS las secciones
+       quedan apiladas y visibles. -->
   <script>document.documentElement.classList.add('js');</script>
 
   <script type="application/ld+json">
@@ -69,82 +69,77 @@
 
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
-<!-- ══════════ STATUS BAR (tmux) ══════════ -->
-<header class="bar">
-  <a class="bar__session" href="#inicio">
-    <span aria-hidden="true">[</span>portfolio<span aria-hidden="true">]</span> leandro@tucuman
-  </a>
-
-  <nav class="bar__tabs" aria-label="Secciones">
-    <a href="#inicio"><span aria-hidden="true">0:</span>hero</a>
-    <a href="#habilidades"><span aria-hidden="true">1:</span>skills</a>
-    <a href="#proyectos"><span aria-hidden="true">2:</span>proyectos</a>
-    <a href="#formacion"><span aria-hidden="true">3:</span>formación</a>
-    <a href="#contacto"><span aria-hidden="true">4:</span>contacto</a>
-  </nav>
-
-  <p class="bar__status">
-    <span class="bar__avail"><span class="pulse" aria-hidden="true"></span>disponible</span>
-    <span class="bar__pos" data-scrollpos aria-hidden="true">top</span>
+<!-- ══════════ Marca: solo el nombre y el estado, sin barra de navegación ══════════ -->
+<header class="mark">
+  <h1 class="mark__name">leandro<span aria-hidden="true">@</span>tucuman</h1>
+  <p class="mark__status">
+    <span class="pulse" aria-hidden="true"></span>disponible
+    <span class="mark__sep" aria-hidden="true">·</span>
+    <a class="mark__cv" href="pdf/cv_lean_dev.pdf" download>cv <span aria-hidden="true">↓</span><span class="sr-only"> — descargar en PDF</span></a>
   </p>
 </header>
 
 <main id="contenido">
 
-  <!-- ══════════ 0:hero — neofetch ══════════ -->
-  <section class="pane" id="inicio" aria-labelledby="t-hero">
-    <h2 class="pane__title" id="t-hero"><span aria-hidden="true">0:</span>hero</h2>
+<!-- ══════════ SECCIONES: cada una es una card del carrusel y abre en un diálogo.
+     Sin JS (o sin <dialog>) se leen como paneles apilados, como antes. ══════════ -->
+<div class="sections">
 
-    <div class="fetch">
-      <img
-        class="fetch__img"
-        src="assets/foto-520.webp"
-        alt="Leandro Nuñez"
-        width="260" height="260"
-        fetchpriority="high"
-      >
+  <section class="pane" id="sobre-mi" aria-labelledby="t-sobre"
+    data-card data-card-accent="--c-amber" data-card-kicker="01" data-card-title="sobre mí"
+    data-card-img="assets/previews/sobre-mi.svg">
+    <h2 class="pane__title" id="t-sobre"><span aria-hidden="true">1:</span>sobre mí</h2>
 
-      <div class="fetch__info">
-        <h1 class="fetch__name">leandro<span aria-hidden="true">@</span><span class="fetch__host">tucuman</span></h1>
-        <p class="fetch__sep" aria-hidden="true">─────────────────────</p>
+    <p class="cmd" aria-hidden="true">$ cat sobre-mi.md</p>
+    <p class="pane__lead">
+      Desarrollador full stack en San Miguel de Tucumán. Backend en
+      Python/FastAPI + PostgreSQL, frontend en React/TypeScript, con
+      integración de IA generativa (RAG, agentes, LLMs) cuando el problema
+      lo pide.
+    </p>
 
-        <dl class="fetch__data">
-          <div><dt>rol</dt><dd>Full Stack Developer</dd></div>
-          <div><dt>stack</dt><dd>Python · FastAPI · PostgreSQL · React · TypeScript</dd></div>
-          <div><dt>ia</dt><dd>RAG · agentes · integración LLM (adicional)</dd></div>
-          <div><dt>uptime</dt><dd>UTN FRT — Tecnicatura en Programación, último año</dd></div>
-          <div><dt>host</dt><dd>San Miguel de Tucumán, AR</dd></div>
-          <div><dt>estado</dt><dd class="ok">disponible</dd></div>
-        </dl>
+    <p class="cmd" aria-hidden="true">$ systemctl status formacion.target</p>
+    <div class="units">
 
-        <!-- La fila de colores de neofetch: el guiño que todo linuxero reconoce. -->
-        <p class="fetch__palette" aria-hidden="true">
-          <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+      <article class="unit">
+        <h3 class="unit__name">
+          <span class="unit__dot unit__dot--wip" aria-hidden="true">●</span>
+          utn-tecnicatura.service <span class="unit__state unit__state--wip">activating (último año)</span>
+        </h3>
+        <p class="unit__desc">
+          Tecnicatura Universitaria en Programación — Universidad Tecnológica
+          Nacional, Facultad Regional Tucumán (2023 — actualidad). Materias
+          relevantes: Programación I–IV, Bases de Datos I y II, Metodología
+          de Sistemas I y II, Arquitectura y Sistemas Operativos, Probabilidad
+          y Estadística.
         </p>
-      </div>
-    </div>
+      </article>
 
-    <div class="prompt">
-      <p class="prompt__line">
-        <span class="prompt__ps" aria-hidden="true">leandro@tucuman:~$ </span><span data-type>whoami</span><span class="cursor" aria-hidden="true"></span>
-      </p>
-      <p class="prompt__out" data-type-out>
-        Desarrollador full stack. Backend en Python/FastAPI + PostgreSQL,
-        frontend en React/TypeScript, con integración de IA generativa (RAG,
-        agentes, LLMs) cuando el problema lo pide.
-      </p>
-    </div>
+      <article class="unit">
+        <h3 class="unit__name">
+          <span class="unit__dot" aria-hidden="true">●</span>
+          ibm-rag-agentic-ai.cert <span class="unit__state">active (completado)</span>
+        </h3>
+        <p class="unit__desc">
+          Certificado profesional de IBM (10 cursos, jul 2026). Construcción de
+          aplicaciones de IA generativa con RAG, bases de datos vectoriales y
+          agentes autónomos: function calling, orquestación con LangChain y
+          LangGraph, arquitecturas multi-agente con CrewAI y AutoGen, agentes
+          sobre MCP y un capstone final.
+        </p>
+        <p class="win__links">
+          <a href="https://coursera.org/verify/professional-cert/QWM3S2AR4S9Y" target="_blank" rel="noopener noreferrer" class="lnk lnk--demo">verificar credencial →</a>
+          <a href="pdf/ibm_rag_agentic_ai.pdf" target="_blank" rel="noopener noreferrer" class="lnk">certificado</a>
+        </p>
+      </article>
 
-    <div class="actions">
-      <a href="#proyectos" class="btn btn--accent">ver proyectos</a>
-      <a href="#contacto" class="btn">contactar</a>
-      <a href="pdf/cv_lean_dev.pdf" download class="btn btn--cv">descargar cv</a>
     </div>
   </section>
 
-  <!-- ══════════ 1:skills — pacman -Q ══════════ -->
-  <section class="pane" id="habilidades" aria-labelledby="t-skills">
-    <h2 class="pane__title" id="t-skills"><span aria-hidden="true">1:</span>skills</h2>
+  <section class="pane" id="habilidades" aria-labelledby="t-skills"
+    data-card data-card-accent="--c-cyan" data-card-kicker="02" data-card-title="skills"
+    data-card-img="assets/previews/skills.svg">
+    <h2 class="pane__title" id="t-skills"><span aria-hidden="true">2:</span>skills</h2>
 
     <p class="cmd" aria-hidden="true">$ pacman -Q</p>
 
@@ -166,9 +161,10 @@
     </ul>
   </section>
 
-  <!-- ══════════ 2:proyectos — ventanas ══════════ -->
-  <section class="pane" id="proyectos" aria-labelledby="t-proyectos">
-    <h2 class="pane__title" id="t-proyectos"><span aria-hidden="true">2:</span>proyectos</h2>
+  <section class="pane" id="profesionales" aria-labelledby="t-pro"
+    data-card data-card-accent="--c-green" data-card-kicker="03" data-card-title="proyectos profesionales"
+    data-card-img="assets/previews/profesionales.svg">
+    <h2 class="pane__title" id="t-pro"><span aria-hidden="true">3:</span>proyectos profesionales</h2>
 
     <p class="cmd" aria-hidden="true">$ systemctl status proyectos-profesionales.target</p>
 
@@ -197,6 +193,12 @@
       </article>
 
     </div>
+  </section>
+
+  <section class="pane" id="personales" aria-labelledby="t-personales"
+    data-card data-card-accent="--c-magenta" data-card-kicker="04" data-card-title="proyectos personales"
+    data-card-img="assets/previews/personales.svg">
+    <h2 class="pane__title" id="t-personales"><span aria-hidden="true">4:</span>proyectos personales</h2>
 
     <p class="cmd" aria-hidden="true">$ ls proyectos-personales/</p>
 
@@ -301,52 +303,10 @@
     </div>
   </section>
 
-  <!-- ══════════ 3:formación — systemctl status ══════════ -->
-  <section class="pane" id="formacion" aria-labelledby="t-formacion">
-    <h2 class="pane__title" id="t-formacion"><span aria-hidden="true">3:</span>formación</h2>
-
-    <p class="cmd" aria-hidden="true">$ systemctl status formacion.target</p>
-
-    <div class="units">
-
-      <article class="unit">
-        <h3 class="unit__name">
-          <span class="unit__dot unit__dot--wip" aria-hidden="true">●</span>
-          utn-tecnicatura.service <span class="unit__state unit__state--wip">activating (último año)</span>
-        </h3>
-        <p class="unit__desc">
-          Tecnicatura Universitaria en Programación — Universidad Tecnológica
-          Nacional, Facultad Regional Tucumán (2023 — actualidad). Materias
-          relevantes: Programación I–IV, Bases de Datos I y II, Metodología
-          de Sistemas I y II, Arquitectura y Sistemas Operativos, Probabilidad
-          y Estadística.
-        </p>
-      </article>
-
-      <article class="unit">
-        <h3 class="unit__name">
-          <span class="unit__dot" aria-hidden="true">●</span>
-          ibm-rag-agentic-ai.cert <span class="unit__state">active (completado)</span>
-        </h3>
-        <p class="unit__desc">
-          Certificado profesional de IBM (10 cursos, jul 2026). Construcción de
-          aplicaciones de IA generativa con RAG, bases de datos vectoriales y
-          agentes autónomos: function calling, orquestación con LangChain y
-          LangGraph, arquitecturas multi-agente con CrewAI y AutoGen, agentes
-          sobre MCP y un capstone final.
-        </p>
-        <p class="win__links">
-          <a href="https://coursera.org/verify/professional-cert/QWM3S2AR4S9Y" target="_blank" rel="noopener noreferrer" class="lnk lnk--demo">verificar credencial →</a>
-          <a href="pdf/ibm_rag_agentic_ai.pdf" target="_blank" rel="noopener noreferrer" class="lnk">certificado</a>
-        </p>
-      </article>
-
-    </div>
-  </section>
-
-  <!-- ══════════ 4:contacto — comandos ══════════ -->
-  <section class="pane" id="contacto" aria-labelledby="t-contacto">
-    <h2 class="pane__title" id="t-contacto"><span aria-hidden="true">4:</span>contacto</h2>
+  <section class="pane" id="contacto" aria-labelledby="t-contacto"
+    data-card data-card-accent="--c-coral" data-card-kicker="05" data-card-title="contacto"
+    data-card-img="assets/previews/contacto.svg">
+    <h2 class="pane__title" id="t-contacto"><span aria-hidden="true">5:</span>contacto</h2>
 
     <p class="pane__lead">Listo para sumar a tu equipo.</p>
 
@@ -367,6 +327,11 @@
         </a>
       </li>
       <li>
+        <a class="cmdlink" href="pdf/cv_lean_dev.pdf" download>
+          <span aria-hidden="true">$ </span>wget <span class="cmdlink__val">cv_lean_dev.pdf</span>
+        </a>
+      </li>
+      <li>
         <a class="cmdlink" href="https://wa.me/5493814627108" target="_blank" rel="noopener noreferrer">
           <span aria-hidden="true">$ </span>wa <span class="cmdlink__val">+54 381 462-7108</span>
         </a>
@@ -374,14 +339,17 @@
     </ul>
   </section>
 
+</div>
+
 </main>
 
 <!-- ══════════ STATUS LINE inferior ══════════ -->
 <footer class="statusline">
-  <p>© 2026 Leandro Nuñez · hecho a mano — HTML, CSS y JS, sin frameworks</p>
-  <p aria-hidden="true">exit 0</p>
+  <p>© 2026 Leandro Nuñez</p>
 </footer>
 
-<script src="script.js"></script>
+<!-- deck.js primero: crea las paredes del cuarto que matrix.js anima. -->
+<script src="js/deck.js" defer></script>
+<script src="js/matrix.js" defer></script>
 </body>
 </html>

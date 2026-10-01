@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+.l{stroke:#ff6ac1;stroke-width:1.6}.d{stroke:#3a4552;stroke-width:1.2}.m{stroke:#8b95a1;stroke-width:1.2}.a{stroke:#d7dce2;stroke-width:1.6}
+.p{fill:#10151c}.t{fill:#8b95a1;stroke:none;font:600 9px ui-monospace,monospace}
+.blink{animation:b 1.1s steps(2,end) infinite}@keyframes b{50%{opacity:0}}
+.flow{stroke-dasharray:4 5;animation:f 1.6s linear infinite}@keyframes f{to{stroke-dashoffset:-18}}
+@media (prefers-reduced-motion:reduce){.blink,.flow{animation:none}}
+</style>
+<rect width="320" height="200" fill="#0a0d12"/>
+<pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#1e2630"/></pattern>
+<rect width="320" height="200" fill="url(#g)"/>
+<!-- ventana trasera: tabla -->
+<rect class="d p" x="44" y="20" width="150" height="96"/>
+<path class="d" d="M44 32h150"/><g class="d"><path d="M52 44h134M52 56h134M52 68h134M52 80h134M90 38v50"/></g>
+<!-- ventana media: catálogo -->
+<rect class="m p" x="86" y="40" width="150" height="96"/>
+<path class="m" d="M86 52h150"/>
+<circle class="m" cx="93" cy="46" r="1.5"/><circle class="m" cx="99" cy="46" r="1.5"/>
+<g class="m"><rect x="96" y="62" width="26" height="22"/><rect x="128" y="62" width="26" height="22"/><path d="M96 90h20M128 90h20"/></g>
+<!-- ventana frontal: chat -->
+<rect class="l p" x="132" y="62" width="150" height="96"/>
+<path class="l" d="M132 74h150"/>
+<circle class="l" cx="139" cy="68" r="1.5"/><circle class="l" cx="145" cy="68" r="1.5"/><circle class="l" cx="151" cy="68" r="1.5"/>
+<rect class="m" x="142" y="84" width="84" height="16"/><path class="m" d="M148 92h60"/>
+<rect class="a" x="190" y="106" width="82" height="16"/><path class="a" d="M196 114h50"/>
+<rect class="m" x="142" y="128" width="56" height="16"/><path class="m blink" d="M150 136h4M158 136h4M166 136h4"/>
+</svg>

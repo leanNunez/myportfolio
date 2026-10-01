@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<style>
+.l{stroke:#ffb454;stroke-width:1.6}.d{stroke:#3a4552;stroke-width:1.2}.m{stroke:#8b95a1;stroke-width:1.2}.a{stroke:#d7dce2;stroke-width:1.6}
+.p{fill:#10151c}.t{fill:#8b95a1;stroke:none;font:600 9px ui-monospace,monospace}
+.blink{animation:b 1.1s steps(2,end) infinite}@keyframes b{50%{opacity:0}}
+.flow{stroke-dasharray:4 5;animation:f 1.6s linear infinite}@keyframes f{to{stroke-dashoffset:-18}}
+@media (prefers-reduced-motion:reduce){.blink,.flow{animation:none}}
+</style>
+<rect width="320" height="200" fill="#0a0d12"/>
+<pattern id="g" width="16" height="16" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#1e2630"/></pattern>
+<rect width="320" height="200" fill="url(#g)"/>
+<g transform="translate(0 -8)">
+  <path class="d" d="M30 152H290"/>
+  <!-- monitor -->
+  <rect class="l p" x="92" y="26" width="136" height="88"/>
+  <rect class="d" x="100" y="34" width="120" height="70"/>
+  <path class="a" d="M108 46h6"/><path class="l" d="M118 46h40"/>
+  <path class="m" d="M108 56h26M138 56h34"/>
+  <path class="m" d="M116 66h44M164 66h20"/>
+  <path class="m" d="M116 76h30"/>
+  <path class="a" d="M108 88h6"/><rect class="blink" x="118" y="83" width="6" height="9" fill="#ffb454"/>
+  <path class="l" d="M152 114l-4 16h24l-4-16M136 130h48"/>
+  <!-- teclado -->
+  <path class="l p" d="M112 138h96l10 12H102z"/>
+  <path class="d" d="M114 142h92M110 146h100"/>
+  <!-- taza -->
+  <path class="l p" d="M240 118h20v24a4 4 0 0 1-4 4h-12a4 4 0 0 1-4-4z"/>
+  <path class="l" d="M260 124h4a5 5 0 0 1 0 10h-4"/>
+  <path class="d" d="M246 112c-3-4 3-6 0-10M254 112c-3-4 3-6 0-10"/>
+  <!-- planta -->
+  <path class="l p" d="M58 132h22l-3 18H61z"/>
+  <path class="l" d="M69 132c0-14-10-20-18-22 2 10 8 18 18 22M69 132c0-16 8-24 18-26-2 12-8 20-18 26M69 132V112"/>
+</g>
+</svg>
