@@ -1,73 +1,85 @@
-# Dirección de arte — myportfolio: "Sesión TUI"
+# Dirección de arte — myportfolio: "Visor AR"
 
 > Leer este archivo ANTES de tocar cualquier cosa de UI en este proyecto.
 
 ## Direction Block
 
 ```
-Tone: técnico, habitado, sin humo
+Tone: técnico, vivo, inmersivo
 
-Signature move: la página ES una sesión de tmux/Zellij. Status bar fija
-  con nombre de sesión y posición de scroll estilo vim (top/42%/bot);
-  secciones como panes con marco y título en el borde (" 0:hero ");
-  hero estilo neofetch con foto, tabla clave:valor y la fila de colores.
-  LazyVim/Tmux/Zellij son el entorno REAL del autor: el mundo del sujeto
-  genera el diseño, no un tema comprado.
+Signature move: el visor "engancha" el objetivo. La página es un visor de
+  realidad aumentada: cinco cards en un carrusel 3D infinito, un HUD fijo
+  (esquinas, lectura yaw/pitch/z) y el mouse como la cabeza que mira.
+  Cada sección tiene su color de terminal y, al centrarse una card, el HUD,
+  el piso de grilla y la lluvia de código se tiñen de ese color.
+  Mover el carrusel cambia el color del mundo.
+  El fondo es un cuarto 3D: piso de grilla (como la referencia) y tres
+  paredes donde cae la lluvia de código; gira con la mirada del visor.
 
-Type: JetBrains Mono, única familia, pesos 400/700 (2 archivos de fuente).
-  Escala 1.25: 16/20/25/31. En una TUI la jerarquía la dan el color, el
-  peso y los marcos — no el tamaño gigante.
-  (Se descartó el nombre en ASCII figlet: a 375px un figlet de "Leandro"
-  necesita ~60ch y rompe el layout. El guiño neofetch cumple ese rol.)
+Type: JetBrains Mono, única familia, pesos 400/700. Escala 1.25:
+  11 (ayudas) / 12 / 14 / 16 / 20 / 25 / 31.
 
-Color: gruvbox dark — oscuro CÁLIDO PLANO:
-  bg #282828 · bg-soft #32302f · bg-hard #1d2021 · borde #504945
-  fg #ebdbb2 (10.8:1) · fg-dim #a89984 (5.3:1; 4.7:1 sobre bg-soft)
-  #928374 SOLO decoración (4.0:1 — no pasa AA para texto)
-  ANSI semántico: green #b8bb26 ok/live/disponible · yellow #fabd2f
-  en curso/títulos de pane · blue #83a598 links · orange #fe8019
-  hover/acción · red #fb4934 casi no existe · aqua #8ec07c tags.
-  PROHIBIDO: glow, blur, backdrop-filter, gradientes, border-radius
-  (única excepción: el LED de "disponible", que es redondo porque es
-  un LED). 16 pares verificados por script antes de escribir el CSS.
+Color: tinta azul-noche + un color ANSI por sección.
+  Neutros fríos: bg #0a0d12 · bg-soft #10151c · bg-hard #07090d
+    borde #1e2630 · fg #d7dce2 (~14:1) · fg-dim #8b95a1 (~6.3:1)
+    #3a4552 SOLO decoración (no pasa AA para texto).
+  Secciones: 01 sobre mí ámbar #ffb454 · 02 skills cyan #5ccfe6 ·
+    03 profesionales verde #3dff8a · 04 personales magenta #ff6ac1 ·
+    05 contacto coral #ff7a6b.
+  Por qué: en una terminal el color ES categoría (`ls --color`). Cada
+    sección es un "tipo de archivo" distinto.
+  El acento va solo en trazos de los dibujos, borde de la card activa,
+  número de sección y HUD (≤10% de superficie). --accent está registrado
+  con @property para poder transicionarlo.
 
-Space: base 8px, densidad tight-comfortable (archetype dev-tool).
-  Panes con gap constante, como un tiling window manager real.
+Space: base 8px, densidad comfortable. Cards 16:10, ancho clamp(17rem, 32vw, 34rem).
 
-Motion: 150ms lineal. Personalidad concentrada en UNA secuencia: el
-  prompt tipea `whoami` una sola vez y aparece la salida; cursor y LED
-  parpadean. reduced-motion: nada parpadea, nada tipea, salida visible
-  — y NADA se re-activa con !important (el bug del diseño anterior).
+Motion: el carrusel (lerp 0.085, snap, inercia, inclinación por velocidad),
+  la mirada del visor (lerp 0.06, máx. 9° yaw / 5° pitch) y UNA transición
+  de color: el tinte del visor, 600ms cubic-bezier(0.16, 1, 0.3, 1).
+  prefers-reduced-motion: sin intro, sin inercia, sin mirada, lluvia
+  estática, dibujos quietos.
 
 Rejected:
-  - Near-black + cyan/violeta + glow + gradiente en texto: lo que había.
-    Es el banned default de art-direction — el look de cualquier
-    portfolio dev del planeta.
-  - Space invaders flotando en animación infinita (5 SVGs, ~80 líneas).
-  - Carruseles: un tiling manager no carrusela, tilea. Grid.
-  - Iconos devicon desde CDN de terceros: en una TUI desentonan y son
-    8 requests. Los reemplaza la lista estilo `pacman -Q`.
+  - Fondo casi negro + un solo verde neón (la versión "Matrix"): banned
+    default de art-direction; todo se leía igual y sin vida.
+  - Arcoíris sin roles y gradientes multicolor: color sin significado.
+  - Cards curvas como la referencia (jesperlandberg.com): el usuario las
+    quiere rectangulares; la velocidad las inclina, nunca las curva.
+  - Capturas de pantalla como preview: cada card se veía de una "marca"
+    distinta. Los dibujos SVG de una misma familia las unifican.
+  - WebGL/Three.js: CSS 3D alcanza y deja el texto como HTML real.
 ```
 
 ## Por qué funciona (y cómo no romperlo)
 
-- **El color ES la jerarquía.** Verde = estado bueno/acción principal,
-  amarillo = en curso/atención, azul = navegable, naranja = hover. Si un
-  color nuevo aparece sin rol semántico, es ruido: sacarlo.
-- **Los caracteres de guion** (`$`, `>`, `●`, `▸`, `0:`) van SIEMPRE en
-  `aria-hidden` o pseudo-elementos: un lector de pantalla debe escuchar
-  "hero", no "cero dos puntos hero".
-- **Sin JS la página está completa**: el gate `html.js` protege reveals y
-  typing. Probarlo deshabilitando JS antes de cualquier release.
-- La página entera (HTML+CSS+JS+foto+og) pesa menos que el 2% de la foto
-  del diseño anterior. Mantener ese presupuesto: ningún asset nuevo
-  arriba de 100 KB sin justificación escrita acá.
+- **El color es la sección.** Un color nuevo sin sección o rol semántico es
+  ruido: sacarlo. Los colores viven en `css/tokens.css` (`--c-*`); el HTML
+  los referencia por nombre (`data-card-accent="--c-amber"`).
+- **Dibujos de una sola familia.** `assets/previews/*.svg`: trazo 1.6 en el
+  color de la sección, secundarios #3a4552 / #8b95a1, resalte #d7dce2,
+  fondo #0a0d12 con grilla de puntos. Un dibujo nuevo respeta esos valores
+  y representa el sistema real, no una metáfora literal del rubro (el
+  camión de reparto se descartó por eso).
+- **El HUD no se mueve; el mundo sí.** Ese contraste es el efecto visor.
+  Nada interactivo va dentro de `.hud` (es `aria-hidden` y sin puntero).
+- **Hit-testing 3D:** `.deck__scene` lleva `pointer-events: none`; sin eso,
+  su plano en z=0 tapa la parte de las cards que queda detrás.
+- **El cuarto es otro contexto 3D** (`.room`), detrás de las cards: misma
+  perspectiva y misma rotación, pero nunca las corta. La lluvia solo vive en
+  las paredes (`[data-rain]`, una por pared, un solo bucle en `matrix.js`).
+- **El piso no es textura.** Una grilla CSS sobre un plano 3D titila al girar
+  (las líneas se re-muestrean y cambian de grosor). El piso y las aristas se
+  proyectan en `dibujarPiso()` con la misma cámara que el CSS y se trazan a
+  1px en un canvas. Si cambia la perspectiva o el giro, cambiar los dos.
+- **Sin JS la página está completa:** las secciones quedan apiladas.
 
-## Verificación antes de cerrar cualquier pantalla
+## Verificación antes de cerrar cualquier cambio de UI
 
 1. 375px Y 1440px.
-2. Tab por toda la página: foco amarillo visible en cada parada.
-3. `prefers-reduced-motion`: nada parpadea, salida del prompt visible.
-4. JS off: página completa.
-5. Swap-test: ¿se distingue de un portfolio dark genérico? El neofetch,
-   la status bar y los panes tienen que responder que sí.
+2. Teclado: ← → cambian de card sin foco previo, Enter abre, Esc cierra.
+3. Hover/click en todo el ancho de cada card (elementFromPoint al 10–90%).
+4. `prefers-reduced-motion`: nada se mueve solo.
+5. JS off: secciones apiladas y legibles.
+6. Swap-test: sin el nombre, ¿se distingue de un portfolio dark genérico?
+   El visor que cambia de color tiene que responder que sí.
