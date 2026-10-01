@@ -26,6 +26,12 @@ if (secciones.length && contenedor && typeof HTMLDialogElement === 'function') {
   const MIRADA_X = 9;          // deg máximos de giro de cabeza (visor AR)
   const MIRADA_Y = 5;
   const MIRADA_LERP = 0.06;
+  // Con giroscopio el movimiento es 1 a 1 (girás 10°, la vista gira 10°),
+  // con más rango que el mouse, y responde más rápido: el sensor ya viene
+  // filtrado y un retardo extra se siente como imprecisión.
+  const GIRO_YAW = 22;
+  const GIRO_PITCH = 14;
+  const GIRO_LERP = 0.25;
 
   const el = (tag, clase, texto) => {
     const nodo = document.createElement(tag);
@@ -406,10 +412,11 @@ if (secciones.length && contenedor && typeof HTMLDialogElement === 'function') {
       mirada.tx = limitar(velocidad * 0.08, -0.8, 0.8);
       mirada.ty = 0;
     }
-    mirada.x += (mirada.tx - mirada.x) * MIRADA_LERP;
-    mirada.y += (mirada.ty - mirada.y) * MIRADA_LERP;
-    const yaw = mirada.x * MIRADA_X;
-    const pitch = mirada.y * MIRADA_Y;
+    const suave = giroscopio.activo ? GIRO_LERP : MIRADA_LERP;
+    mirada.x += (mirada.tx - mirada.x) * suave;
+    mirada.y += (mirada.ty - mirada.y) * suave;
+    const yaw = mirada.x * (giroscopio.activo ? GIRO_YAW : MIRADA_X);
+    const pitch = mirada.y * (giroscopio.activo ? GIRO_PITCH : MIRADA_Y);
     const giro = `rotateX(${(-pitch).toFixed(3)}deg) rotateY(${yaw.toFixed(3)}deg)`;
     escena.style.transform = giro;
     espacio.style.transform = giro;   // el cuarto gira con la cabeza
@@ -558,35 +565,69 @@ if (secciones.length && contenedor && typeof HTMLDialogElement === 'function') {
   }
 
   // ── Mirada con el giroscopio: el celular es el visor ────────────────────
-  // Inclinar a los lados gira la cabeza (yaw), hacia adelante/atrás la sube o
-  // baja (pitch). La postura con la que se sostiene el celular es el "frente":
-  // se toma al empezar y se re-centra despacio, así no hay que sostenerlo recto.
+  // Los ángulos sueltos (beta/gamma) saltan cuando el celular se pone
+  // vertical. Se arma la orientación completa como cuaternión (la técnica de
+  // los visores VR web), se obtiene hacia dónde apunta la cámara y de ahí el
+  // giro alrededor del eje vertical del mundo (yaw) y la altura (pitch),
+  // relativos a la postura del arranque. Sin re-centrado: lo que girás, gira.
   const giroscopio = { activo: false, base: null };
-  const RANGO_YAW = 25;     // grados de inclinación para llegar al giro máximo
-  const RANGO_PITCH = 20;
+  const RAD = Math.PI / 180;
+
+  const multiplicar = (a, b) => [
+    a[0] * b[3] + a[3] * b[0] + a[1] * b[2] - a[2] * b[1],
+    a[1] * b[3] + a[3] * b[1] + a[2] * b[0] - a[0] * b[2],
+    a[2] * b[3] + a[3] * b[2] + a[0] * b[1] - a[1] * b[0],
+    a[3] * b[3] - a[0] * b[0] - a[1] * b[1] - a[2] * b[2],
+  ];
+  // La cámara mira por la espalda del celular, no por su borde superior.
+  const ESPALDA = [-Math.SQRT1_2, 0, 0, Math.SQRT1_2];
+
+  // Hacia dónde mira la cámara (y arriba, -z adelante) → [yaw, pitch] en grados.
+  function direccion(e) {
+    const x = (e.beta || 0) * RAD;
+    const y = (e.alpha || 0) * RAD;
+    const z = -(e.gamma || 0) * RAD;
+    const [c1, c2, c3] = [Math.cos(x / 2), Math.cos(y / 2), Math.cos(z / 2)];
+    const [s1, s2, s3] = [Math.sin(x / 2), Math.sin(y / 2), Math.sin(z / 2)];
+    let q = [   // Euler YXZ → cuaternión
+      s1 * c2 * c3 + c1 * s2 * s3,
+      c1 * s2 * c3 - s1 * c2 * s3,
+      c1 * c2 * s3 - s1 * s2 * c3,
+      c1 * c2 * c3 + s1 * s2 * s3,
+    ];
+    q = multiplicar(q, ESPALDA);
+    const angulo = ((screen.orientation && screen.orientation.angle) || 0) * RAD;
+    q = multiplicar(q, [0, 0, Math.sin(-angulo / 2), Math.cos(-angulo / 2)]);
+
+    // Rotar el vector adelante (0, 0, -1) por q.
+    const [qx, qy, qz, qw] = q;
+    const tx = 2 * (qy * -1);
+    const ty = 2 * (-qx * -1);
+    const tz = 0;
+    const fx = qw * tx + (qy * tz - qz * ty);
+    const fy = qw * ty + (qz * tx - qx * tz);
+    const fz = -1 + qw * tz + (qx * ty - qy * tx);
+    return [Math.atan2(fx, -fz) / RAD, Math.asin(limitar(fy, -1, 1)) / RAD];
+  }
+
+  const envolver = (g) => ((g + 540) % 360) - 180;
 
   function alInclinar(e) {
-    if (e.beta === null || e.gamma === null) return;
-    // Ejes según cómo esté girada la pantalla.
-    const angulo = (screen.orientation && screen.orientation.angle) || 0;
-    const [lado, frente] = {
-      0: [e.gamma, e.beta],
-      90: [e.beta, -e.gamma],
-      180: [-e.gamma, -e.beta],
-      270: [-e.beta, e.gamma],
-    }[(angulo + 360) % 360] || [e.gamma, e.beta];
+    if (e.alpha === null || e.beta === null || e.gamma === null) return;
+    const [yaw, pitch] = direccion(e);
 
     if (!giroscopio.base) {
-      giroscopio.base = { lado, frente };
+      giroscopio.base = { yaw, pitch };
       giroscopio.activo = true;
       document.documentElement.classList.add('con-giroscopio');
     }
-    // Re-centrado lento hacia la postura actual.
-    giroscopio.base.lado += (lado - giroscopio.base.lado) * 0.004;
-    giroscopio.base.frente += (frente - giroscopio.base.frente) * 0.004;
-
-    mirada.tx = limitar((lado - giroscopio.base.lado) / RANGO_YAW, -1, 1);
-    mirada.ty = limitar((frente - giroscopio.base.frente) / RANGO_PITCH, -1, 1);
+    // Acá solo se anota la posición real. El filtro del pulso es el lerp de
+    // pintar(), por frame: Chrome deja de mandar eventos cuando el celular se
+    // queda quieto, y un filtro por evento dejaba el último movimiento a medias.
+    // Mirar a la derecha = yaw positivo; mirar arriba = pitch negativo (igual
+    // que el mouse arriba de la pantalla).
+    mirada.tx = limitar(envolver(yaw - giroscopio.base.yaw) / GIRO_YAW, -1, 1);
+    mirada.ty = limitar(-(pitch - giroscopio.base.pitch) / GIRO_PITCH, -1, 1);
     solicitar();
   }
 
