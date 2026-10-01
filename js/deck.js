@@ -591,16 +591,17 @@ if (secciones.length && contenedor && typeof HTMLDialogElement === 'function') {
   }
 
   if (hayGiroscopio && !sinMovimiento) {
-    const escuchar = () => window.addEventListener('deviceorientation', alInclinar);
+    // Se escucha desde el arranque: donde el permiso ya está concedido
+    // (Android) los datos llegan solos, sin esperar ningún toque.
+    window.addEventListener('deviceorientation', alInclinar);
+    // requestPermission no es exclusivo de iOS (Chrome también lo expone),
+    // así que su existencia no dice si hace falta. Se pide en el primer toque
+    // por si el navegador bloquea los datos hasta entonces (Safari en iOS):
+    // solo se puede pedir dentro de un gesto del usuario.
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-      // iOS: el permiso solo se puede pedir dentro de un toque del usuario.
       window.addEventListener('touchend', () => {
-        DeviceOrientationEvent.requestPermission()
-          .then((estado) => { if (estado === 'granted') escuchar(); })
-          .catch(() => {});   // sin permiso: queda la mirada que sigue al dedo
+        DeviceOrientationEvent.requestPermission().catch(() => {});
       }, { once: true });
-    } else {
-      escuchar();
     }
     // Al rotar la pantalla cambia qué es "frente": recalibrar.
     screen.orientation?.addEventListener('change', () => { giroscopio.base = null; });
