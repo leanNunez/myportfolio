@@ -26,12 +26,14 @@ if (secciones.length && contenedor && typeof HTMLDialogElement === 'function') {
   const MIRADA_X = 9;          // deg máximos de giro de cabeza (visor AR)
   const MIRADA_Y = 5;
   const MIRADA_LERP = 0.06;
-  // Con giroscopio el movimiento es 1 a 1 (girás 10°, la vista gira 10°),
-  // con más rango que el mouse, y responde más rápido: el sensor ya viene
+  // Con giroscopio la vista gira una fracción de lo que girás el celular
+  // (GIRO_GANANCIA: 1 sería 1 a 1, que se sentía brusco; 0.36 era lento).
+  // Rango mayor que el mouse y respuesta más rápida: el sensor ya viene
   // filtrado y un retardo extra se siente como imprecisión.
   const GIRO_YAW = 22;
   const GIRO_PITCH = 14;
-  const GIRO_LERP = 0.25;
+  const GIRO_GANANCIA = 0.6;
+  const GIRO_LERP = 0.2;
 
   const el = (tag, clase, texto) => {
     const nodo = document.createElement(tag);
@@ -626,8 +628,8 @@ if (secciones.length && contenedor && typeof HTMLDialogElement === 'function') {
     // queda quieto, y un filtro por evento dejaba el último movimiento a medias.
     // Mirar a la derecha = yaw positivo; mirar arriba = pitch negativo (igual
     // que el mouse arriba de la pantalla).
-    mirada.tx = limitar(envolver(yaw - giroscopio.base.yaw) / GIRO_YAW, -1, 1);
-    mirada.ty = limitar(-(pitch - giroscopio.base.pitch) / GIRO_PITCH, -1, 1);
+    mirada.tx = limitar(envolver(yaw - giroscopio.base.yaw) * GIRO_GANANCIA / GIRO_YAW, -1, 1);
+    mirada.ty = limitar(-(pitch - giroscopio.base.pitch) * GIRO_GANANCIA / GIRO_PITCH, -1, 1);
     solicitar();
   }
 
